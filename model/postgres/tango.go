@@ -2,7 +2,8 @@ package postgres
 import (
 	"fmt"
 	log "github.com/sirupsen/logrus"
-	"database/sql"	 
+	"database/sql"
+	 
 )
 
 func GetFilesId( bugreportId int ) (*[]int, int) {
@@ -56,11 +57,8 @@ type Message struct{
 }
 
 func GetContents(bugreport_id int, partition_id int, file_id int) []Message {
-	sql, err := DbSql.Prepare("SELECT tag,message FROM contents WHERE bugreport_id=$1 and partition_id=$2 and file_id=$3")
-	if err != nil {
-		log.Fatal(err)
-	}
-	rows, err := sql.Query(bugreport_id, partition_id, file_id)
+	log.Info( "bugreport ", bugreport_id, " partition_id ", partition_id, " file_id ", file_id )
+	rows, err := DbSql.Query("SELECT tag,message FROM contents WHERE bugreport_id=$1 and partition_id=$2 and file_id=$3", bugreport_id, partition_id, file_id)
 	defer rows.Close()
 
 	if err != nil {

@@ -95,9 +95,10 @@ func initialize() {
 
 func consume( chConsumers *chan *prod.Msg, msgParser *chan string ) {
 	for msg := range *chConsumers {
-		fmt.Println("Consumer: ", msg.Id)
-		messages:=postgres.GetContents(msg.Id,msg.BugreportId,msg.PartitionId )
+		fmt.Println("Consumer file_id: ", msg.Id)
+		messages:=postgres.GetContents(msg.BugreportId,msg.PartitionId,msg.Id )
 		for _,m := range messages {
+				//fmt.Println( "tag ",m.Tag)
 				if strings.Contains(m.Tag,"ActivityManager" ) {
 					//fmt.Println( "tag ",m.tag,m.mess )
 					*msgParser <- m.Mess
@@ -115,6 +116,7 @@ func worker( msgParser *chan string ) {
 		/*if len(input)>=10 && input[0:10]=="Start proc" {
 			fmt.Println( "input ",input)
 		}*/
+		//fmt.Println( "input ",input)
 		if e.Approximate( input ) {
 			fmt.Println( "IT MATCHED ", input )
 		}

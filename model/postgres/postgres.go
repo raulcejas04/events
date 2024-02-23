@@ -26,6 +26,10 @@ import (
 	 "time"
 	"database/sql"
 	_ "github.com/lib/pq"
+	sqldblogger "github.com/simukti/sqldb-logger"
+   	"github.com/rs/zerolog"	
+	zerologadapter "github.com/simukti/sqldb-logger/logadapter/zerologadapter"
+	"os"		
 )
 
 type KnowledgeDef struct {
@@ -159,13 +163,15 @@ func NewConnection() {
 }
 
 var DbSql *sql.DB
-
+/*type Logger interface {
+	Log(ctx context.Context, level Level, msg string, data map[string]interface{})
+}*/
 func NewConnectionSql() {
-	name := viper.GetString("postgres.name")
-	host := viper.GetString("postgres.host")
-	port := viper.GetString("postgres.port")
-	user := viper.GetString("postgres.user")
-	password := viper.GetString("postgres.password")
+	name := viper.GetString("postgres_tango.name")
+	host := viper.GetString("postgres_tango.host")
+	port := viper.GetString("postgres_tango.port")
+	user := viper.GetString("postgres_tango.user")
+	password := viper.GetString("postgres_tango.password")
 	
 	//dsn := "host=aggro.magicleap.ds user=aggro dbname=argus_tango sslmode=disable password=orgga port=5432"
 	//dsn := "host=localhost user=postgres dbname=argus_prod_logcat sslmode=disable password=postgres port=6432"
@@ -179,7 +185,10 @@ func NewConnectionSql() {
 	} else {
 		log.Infof("postgres: successfully connected to database")
 	}
-
+	
+	loggerAdapter := zerologadapter.New(zerolog.New(os.Stdout))
+	DbSql = sqldblogger.OpenDriver(dsn, DbSql.Driver(), loggerAdapter /*, ...options */) 	
+	//DbSql = sqldblogger.OpenDriver(dsn, DbSql.Driver(), loggerAdapter/*, using_default_options*/)
 }
 
 
