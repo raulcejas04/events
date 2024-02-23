@@ -1,9 +1,9 @@
 package parse
 
 import (
-    //"fmt"
+    "fmt"
     "strings"
-
+    "regexp"
 )
 type Event struct{
 	LogLine string
@@ -63,6 +63,27 @@ func (event *Event ) Approximate( line string ) bool {
 		return false
 	}
 
+}
+
+func ( event *Event ) GetParameters( input string ) *[]string {
+	if strings.Contains(event.LogLine, "%s") || strings.Contains(event.LogLine, "%d") {
+		rexp := event.RegularExpression()
+		pattern:= regexp.MustCompile( rexp )
+		parameters := pattern.FindStringSubmatch( input )
+		if len(parameters)>0 {
+			fmt.Println( "PARAMETERS ", parameters )
+			return &parameters
+		}
+	} else {
+		return nil
+	}
+	return nil
+}
+
+func ( event *Event ) RegularExpression() string {
+	res:=strings.Replace( event.LogLine, "%s", "(.+)", -1)
+	res=strings.Replace( res, "%d", "(\\d+)", -1)
+	return res
 }
 
 func ( event *Event ) GetWords( ) {

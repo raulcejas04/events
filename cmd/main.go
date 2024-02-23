@@ -119,6 +119,7 @@ func worker( msgParser *chan string ) {
 		//fmt.Println( "input ",input)
 		if e.Approximate( input ) {
 			fmt.Println( "IT MATCHED ", input )
+			e.GetParameters( input )
 		}
 	}
 }
