@@ -1,0 +1,9 @@
+postgres:
+  name: "argus_events"
+  host: "localhost"
+  port: "6432"
+  user: "postgres"
+  password: "postgres"
+
+  
+
