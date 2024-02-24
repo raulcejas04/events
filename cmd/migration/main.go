@@ -17,10 +17,11 @@ func main() {
 	
 	postgres.Setup()
 	postgres.InitLoad()
-	knw:=postgres.Get(1)
+	know := postgres.KnowledgeDef{}
+	know.GetKnowledgeDef(1)
 	//fmt.Printf("knw %+v\n",knw )
 	
-        u, err := json.Marshal(knw)
+        u, err := json.Marshal(know)
         if err != nil {
             panic(err)
         }

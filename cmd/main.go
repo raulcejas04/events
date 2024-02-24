@@ -59,6 +59,11 @@ func main () {
 
 	initialize()
 	
+	postgres.NewConnection()
+	know := postgres.KnowledgeDef{}
+	know.GetKnowledgeDef(1)
+	fmt.Println( "events ", know.GetEvents() )
+	return
 	postgres.NewConnectionSql()
 	var msgParser = make(chan string)
 	
