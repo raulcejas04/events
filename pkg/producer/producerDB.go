@@ -17,7 +17,9 @@ type ProducerBR struct {
 type Msg struct {
 	BugreportId int
 	PartitionId int
-	Id  int
+	FileId  int
+	FileName string
+	EventIndex *[]EventIndex
 	//Sql *sql.Stmt
 }
 
@@ -30,14 +32,23 @@ func (p *ProducerBR) InitProducerDB()  {
 func (p *ProducerBR ) ProducerBugRep( ) {
 	for in := range (*p).In {
 		bugreportId,_:=strconv.Atoi(in.Id)
-		files,partitionId:=postgres.GetFilesId( bugreportId ) 
-		for _, file_id := range *files {
+		files,partitionId:=postgres.GetFilesId( bugreportId )
+		var eventIndex []EventIndex  
+		for _, inMsg := range *files {
 			msg := Msg{}
-			msg.Id = file_id
+			msg.FileId = inMsg.FileId
+			msg.FileName = inMsg.FileName
 			msg.BugreportId=bugreportId
 			msg.PartitionId=partitionId
+			msg.EventIndex=&eventIndex
 			(*p).Consumer <- &msg
 		}
+		msg:=Msg{}
+		msg.Id=0
+		msg.BugreportId=bugreportId
+		msg.PartitionId=partitionId
+		msg.EventIndex=&eventIndex		
+		(*p).Consumer <- &msg	
 	}
 	fmt.Println("Before closing channel")
 

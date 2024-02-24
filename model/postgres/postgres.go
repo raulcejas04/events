@@ -26,10 +26,10 @@ import (
 	 "time"
 	"database/sql"
 	_ "github.com/lib/pq"
-	sqldblogger "github.com/simukti/sqldb-logger"
-   	"github.com/rs/zerolog"	
-	zerologadapter "github.com/simukti/sqldb-logger/logadapter/zerologadapter"
-	"os"		
+	//sqldblogger "github.com/simukti/sqldb-logger"
+   	//"github.com/rs/zerolog"	
+	//zerologadapter "github.com/simukti/sqldb-logger/logadapter/zerologadapter"
+	//"os"		
 )
 
 type KnowledgeDef struct {
@@ -186,9 +186,9 @@ func NewConnectionSql() {
 		log.Infof("postgres: successfully connected to database")
 	}
 	
-	loggerAdapter := zerologadapter.New(zerolog.New(os.Stdout))
-	DbSql = sqldblogger.OpenDriver(dsn, DbSql.Driver(), loggerAdapter /*, ...options */) 	
-	//DbSql = sqldblogger.OpenDriver(dsn, DbSql.Driver(), loggerAdapter/*, using_default_options*/)
+	//loggerAdapter := zerologadapter.New(zerolog.New(os.Stdout))
+	//DbSql = sqldblogger.OpenDriver(dsn, DbSql.Driver(), loggerAdapter /*, ...options */) 	
+
 }
 
 

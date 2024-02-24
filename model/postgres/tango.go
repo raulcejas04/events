@@ -6,7 +6,12 @@ import (
 	 
 )
 
-func GetFilesId( bugreportId int ) (*[]int, int) {
+type FileMsg struct {
+	FileId int
+	FileName int
+}
+
+func GetFilesId( bugreportId int ) (*[]FileMsg, int) {
 
 	rows,err := DbSql.Query("SELECT partition_id FROM br_partitions WHERE bugreport_id=$1",bugreportId )
 	if err == sql.ErrNoRows {
@@ -26,7 +31,7 @@ func GetFilesId( bugreportId int ) (*[]int, int) {
 
 	log.Info( "For bugreport ", bugreportId," Partition found ", partitionId )
 
-	rows, err = DbSql.Query("SELECT id FROM files WHERE bugreport_id=$1 and partition_id=$2", bugreportId, partitionId)
+	rows, err = DbSql.Query("SELECT id,file_name FROM files WHERE bugreport_id=$1 and partition_id=$2", bugreportId, partitionId)
 	if err == sql.ErrNoRows {
 		log.Fatal("No Results Found")
 	}
@@ -34,15 +39,16 @@ func GetFilesId( bugreportId int ) (*[]int, int) {
 		log.Fatal(err)
 	}
 
-	var files []int
+	var files []FileMsg
 	for rows.Next() {
 		var file_id int
-		if err := rows.Scan(&file_id); err != nil {
+		var file_name string
+		if err := rows.Scan(&file_id,&file_name); err != nil {
 			log.Fatal("Error in scan")
 		}
-		files = append(files, file_id)
+		files = append(files, FileMsg{ FileId: file_id, FileName: file_name )
 	}
-	fmt.Println("files ", files)
+	//fmt.Println("files ", files)
 
 	if len( files )==0 {
 		return nil,0
@@ -56,9 +62,33 @@ type Message struct{
 	Tag string
 }
 
+type MsgBoot struct {
+	BootId int
+	BootName string
+}
+
 func GetContents(bugreport_id int, partition_id int, file_id int) []Message {
+
+	rows,err := DbSql.Query("SELECT l.id,b.boot_folder_id,b.boot_folder_name FROM labels l, boot_folders b WHERE l.boot_folder_id=b.id AND 
+				bugreport_id=$1 and partition_id=$2 and file_id=$3", bugreport_id, partition_id, file_id)
+	defer rows.Close()
+
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	var labels =make( map[int]string )
+	for rows.Next() {
+		var id,boot_folder_id int
+		var boot_folder_name string
+		if err := rows.Scan(&id,&boot_id,&boot_folder_name); err != nil {
+			log.Fatal(err)
+		}
+		labels[id]=MsgBoot{ BootId: boot_id, BootName: boot_folder_name}
+	}
+	
 	log.Info( "bugreport ", bugreport_id, " partition_id ", partition_id, " file_id ", file_id )
-	rows, err := DbSql.Query("SELECT tag,message FROM contents WHERE bugreport_id=$1 and partition_id=$2 and file_id=$3", bugreport_id, partition_id, file_id)
+	rows, err := DbSql.Query("SELECT tag,message,label_id,timestamp FROM contents WHERE bugreport_id=$1 and partition_id=$2 and file_id=$3", bugreport_id, partition_id, file_id)
 	defer rows.Close()
 
 	if err != nil {
@@ -69,10 +99,14 @@ func GetContents(bugreport_id int, partition_id int, file_id int) []Message {
 	for rows.Next() {
 		var message string
 		var tag string
-		if err := rows.Scan(&tag,&message); err != nil {
+		var label_id int
+		var timestamp time.Time
+		var location string
+		if err := rows.Scan(&tag,&message,&label_id,&timestamp,&location); err != nil {
 			log.Fatal(err)
 		}
-		messages = append(messages, Message{ Tag: tag, Mess: message})
+		boot:=labels[label_id]
+		messages = append(messages, Message{ Location: location, Tag: tag, Mess: message, timestamp: timestamp, BootId: boot.BootId, BootName: boot.BootName, Timestamp: timestamp})
 	}
 	fmt.Println(" fileid 2 ", file_id, len(messages))
 	return messages

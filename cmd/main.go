@@ -62,7 +62,7 @@ func main () {
 	postgres.NewConnection()
 	know := postgres.KnowledgeDef{}
 	know.GetKnowledgeDef(1)
-	events:=know.GetEvents() )
+	events:=know.GetEvents()
 	postgres.NewConnectionSql()
 	var msgParser = make(chan string)
 	
@@ -79,7 +79,7 @@ func main () {
 		go consume( &((*p).Consumer), &msgParser )
 	}
 	for i:=1;i<4;i++ {
-		go worker( &msgParser, &events )
+		go worker( &msgParser, events )
 	}
 	<-(*p).Done
 	
@@ -100,34 +100,43 @@ func initialize() {
 func consume( chConsumers *chan *prod.Msg, msgParser *chan string ) {
 	for msg := range *chConsumers {
 		fmt.Println("Consumer file_id: ", msg.Id)
-		messages:=postgres.GetContents(msg.BugreportId,msg.PartitionId,msg.Id )
-		for _,m := range messages {
+		if msg.Id==0 {
+			postgres.SaveEvents( msg.BugreportId, msg.PartitionId )		
+		} else {
+			messages:=postgres.GetContents(msg.BugreportId,msg.PartitionId,msg.Id )
+			for _,m := range messages {
 				//fmt.Println( "tag ",m.Tag)
 				if strings.Contains(m.Tag,"ActivityManager" ) {
 					//fmt.Println( "tag ",m.tag,m.mess )
 					*msgParser <- m.Mess
 				}
-		}
-
+			}
+		}	
 	}
 }
 
 func worker( msgParser *chan string, events *map[uint]map[uint]map[uint]string ) {
 	for input :=range *msgParser {
-		e:=parse.Event{ LogLine: "Start proc %d:%s for activity {%s/%s}" }
-		//split
-		e.GetWords()
-		/*if len(input)>=10 && input[0:10]=="Start proc" {
-			fmt.Println( "input ",input)
-		}*/
-		//fmt.Println( "input ",input)
-		if e.Approximate( input ) {
-			fmt.Println( "IT MATCHED ", input )
-			param := e.GetParameters( input )
-			if len(param) {
-				fmt.Println( "IT MATCHED2 ", input )
+		for scenarioId,scen := range *events {
+			for stateId,state := range scen {
+				for eventId,even := range state {
+					e:=parse.Event{ LogLine: even }
+					//split
+					e.GetWords()
+					//fmt.Println( "input ",input)
+					if e.Approximate( input ) {
+						fmt.Println( "IT MATCHED ", input )
+						param := e.GetParameters( input )
+						if len(*param)>0 {
+							fmt.Println( "IT MATCHED2 ", scenarioId,stateId,eventId, input," param ",*param )
+							
+						}
+					}
+				}
+
 			}
-		}
+		}			
+		
 	}
 }
 
