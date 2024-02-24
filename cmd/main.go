@@ -62,8 +62,7 @@ func main () {
 	postgres.NewConnection()
 	know := postgres.KnowledgeDef{}
 	know.GetKnowledgeDef(1)
-	fmt.Println( "events ", know.GetEvents() )
-	return
+	events:=know.GetEvents() )
 	postgres.NewConnectionSql()
 	var msgParser = make(chan string)
 	
@@ -80,7 +79,7 @@ func main () {
 		go consume( &((*p).Consumer), &msgParser )
 	}
 	for i:=1;i<4;i++ {
-		go worker( &msgParser )
+		go worker( &msgParser, &events )
 	}
 	<-(*p).Done
 	
@@ -113,7 +112,7 @@ func consume( chConsumers *chan *prod.Msg, msgParser *chan string ) {
 	}
 }
 
-func worker( msgParser *chan string ) {
+func worker( msgParser *chan string, events *map[uint]map[uint]map[uint]string ) {
 	for input :=range *msgParser {
 		e:=parse.Event{ LogLine: "Start proc %d:%s for activity {%s/%s}" }
 		//split
@@ -124,7 +123,10 @@ func worker( msgParser *chan string ) {
 		//fmt.Println( "input ",input)
 		if e.Approximate( input ) {
 			fmt.Println( "IT MATCHED ", input )
-			e.GetParameters( input )
+			param := e.GetParameters( input )
+			if len(param) {
+				fmt.Println( "IT MATCHED2 ", input )
+			}
 		}
 	}
 }

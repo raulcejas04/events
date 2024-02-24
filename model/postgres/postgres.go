@@ -201,7 +201,7 @@ return
 
 }
 
-func ( k *KnowledgeDef ) GetEvents() map[uint]map[uint]map[uint]string {
+func ( k *KnowledgeDef ) GetEvents() *map[uint]map[uint]map[uint]string {
 
 var events = make( map[uint]map[uint]map[uint]string )
 for _,s := range k.Scenarios {
@@ -219,5 +219,5 @@ for _,s := range k.Scenarios {
 		}
 	}
 }
-return events
+return &events
 }
