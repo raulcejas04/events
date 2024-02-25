@@ -17,10 +17,15 @@ type ProducerBR struct {
 type Msg struct {
 	BugreportId int
 	PartitionId int
-	FileId  int
+	FileId  uint
 	FileName string
-	EventIndex *[]EventIndex
+	EventIndex *[]postgres.EventIndex
 	//Sql *sql.Stmt
+}
+
+type MsgWorker struct {
+	Message postgres.Message
+	EventIndex *[]postgres.EventIndex  	
 }
 
 func (p *ProducerBR) InitProducerDB()  {
@@ -33,7 +38,7 @@ func (p *ProducerBR ) ProducerBugRep( ) {
 	for in := range (*p).In {
 		bugreportId,_:=strconv.Atoi(in.Id)
 		files,partitionId:=postgres.GetFilesId( bugreportId )
-		var eventIndex []EventIndex  
+		var eventIndex []postgres.EventIndex  
 		for _, inMsg := range *files {
 			msg := Msg{}
 			msg.FileId = inMsg.FileId
@@ -44,7 +49,7 @@ func (p *ProducerBR ) ProducerBugRep( ) {
 			(*p).Consumer <- &msg
 		}
 		msg:=Msg{}
-		msg.Id=0
+		msg.FileId=0
 		msg.BugreportId=bugreportId
 		msg.PartitionId=partitionId
 		msg.EventIndex=&eventIndex		
