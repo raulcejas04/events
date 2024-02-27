@@ -114,7 +114,7 @@ func consumer( chConsumers *chan *prod.Msg, msgParser *chan prod.MsgWorker ) {
 				//fmt.Println( "tag ",m.Tag)
 				if strings.Contains(m.Tag,"ActivityManager" ) {
 					//fmt.Println( "tag ",m.tag,m.mess )
-					msgPar:= prod.MsgWorker{ Message: m, EventIndex: msg.EventIndex }
+					msgPar:= prod.MsgWorker{ Message: m, EventIndex: msg.EventIndex, LifeCycles: msg.LifeCycles }
 					*msgParser <- msgPar
 				}
 			}
@@ -123,11 +123,14 @@ func consumer( chConsumers *chan *prod.Msg, msgParser *chan prod.MsgWorker ) {
 }
 
 func worker( msgParser *chan prod.MsgWorker, parser *parser.Parser ) {
-	/*for input :=range *msgParser {
+	for input :=range *msgParser {
+	
+		lc:=input.LifeCycles[input.Message.BootId]
+		evp:=lc.GetEventsToProcess()
 		for scenarioId,scen := range *events {
 			for stateId,state := range scen {
 				for eventId,even := range state {
-					e:=parse.Event{ LogLine: even }
+					/*e:=parse.Event{ LogLine: even }
 
 					if e.Approximate( input.Message.Mess ) {
 						refEvent,refParam := UsedParam( even )
@@ -169,11 +172,12 @@ func worker( msgParser *chan prod.MsgWorker, parser *parser.Parser ) {
 							}
 						}
 					}
+					*/
 				}
 
 			}
 		}			
 		
-	}*/
+	}
 }
 

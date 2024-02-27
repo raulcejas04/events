@@ -15,6 +15,7 @@ type ProducerBR struct {
     Consumer chan *Msg
     Done chan bool
     Parser *parser.Parser
+    LifeCycles *map[uint]LifeCycle //boot_id is the key
 }
 type Msg struct {
 	BugreportId int
@@ -27,7 +28,42 @@ type Msg struct {
 
 type MsgWorker struct {
 	Message postgres.Message
-	EventIndex *[]postgres.EventIndex  	
+	EventIndex *[]postgres.EventIndex
+	LifeCycles *map[uint]LifeCycle //boot_id is the key	  	
+}
+
+type LifeCycle struct {
+	Scenarios		map[uint]ScenarioProcessed
+	BootName		string
+	Events			[]EventsProcessed		
+}
+
+type ScenarioProcessed struct {
+	States			map[uint]StateProcessed
+	Result			bool //if all states where processed
+}
+
+type StateProcessed struct {
+	Events			map[uint]EventProcessed
+	Result			bool //successful or not for example all_found requires all events found	
+}
+
+type EventsProcessed struct {
+	Mess	string		//pattern
+	Line 	string		//log line
+	Result	bool		//found or not
+
+}
+
+func (l LifeCycle) GetEventsToProcess() {
+
+
+}
+
+//add the scenario if not exist, all states and foreach state all event to process
+func (l LifeCycle) AddState( line string, stateId uint, scenarioId uint, stateId, eventId uint) {
+
+
 }
 
 func (p *ProducerBR) InitProducerDB()  {

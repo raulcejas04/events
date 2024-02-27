@@ -118,6 +118,6 @@ func GetContents(bugreportId int, partitionId int, fileId uint, fileName string)
 		boot:=labels[label_id]
 		messages = append(messages, Message{ BugreportId: bugreportId, PartitionId: partitionId, Location: location, Tag: tag, Mess: message, Timestamp: timestamp, BootId: boot.BootId, BootName: boot.BootName, FileId: fileId, FileName: fileName, LineNumber: line_number })
 	}
-	fmt.Println(" fileid 2 ", fileId, len(messages))
+	//fmt.Println(" fileid 2 ", fileId, len(messages))
 	return messages
 }

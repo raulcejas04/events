@@ -52,6 +52,9 @@ DbEvents.Create(&TypeScenarios)
 var TypeCondFail = []TypeCondFail{{ConditionName: "error"},}
 DbEvents.Create(&TypeCondFail)
 
+var TypeState = []TypeState{{TypeStateName: "true"}, { TypeStateName:"false" } }
+DbEvents.Create(&TypeState)
+
 var TypeErrorConds = []TypeErrorCond{{TypeErrorCondName: "error"}}
 DbEvents.Create(&TypeErrorConds)
 
@@ -61,9 +64,11 @@ DbEvents.Create(&PassConds)
 var KnowledgeDefs = []KnowledgeDef{KnowledgeDef{DefName: "Log Database", 
 					Scenarios: []Scenario{
 						Scenario{
+							ScenarioName: "ApplicationRunning",
 							TypeScenarioID: 3, 
 							States: []State{
-								State{ PassCondID: 1, 
+								State{ PassCondID: 1,
+									TypeStateID: 1, 
 									Message: "Application %0%2 starting",
 									Events: []Event{
 										Event{
@@ -74,6 +79,7 @@ var KnowledgeDefs = []KnowledgeDef{KnowledgeDef{DefName: "Log Database",
 									 	},
 									},
 								State{ PassCondID: 1, 
+									TypeStateID: 2, 								
 									Message: "Application %0%2 stopped",
 									Events: []Event{
 										Event{
@@ -98,9 +104,11 @@ var KnowledgeDefs = []KnowledgeDef{KnowledgeDef{DefName: "Log Database",
 
 							},
 						Scenario{
+							ScenarioName: "DisplayPowerState",						
 							TypeScenarioID: 3, 
 							States: []State{
 								State{ PassCondID: 1, 
+									TypeStateID: 1, 								
 									Message: "Displays are switched on",
 									Events: []Event{
 										Event{
@@ -117,6 +125,7 @@ var KnowledgeDefs = []KnowledgeDef{KnowledgeDef{DefName: "Log Database",
 									 	},
 									},
 								State{ PassCondID: 1, 
+									TypeStateID: 2, 								
 									Message: "Displays are switched off",
 									Events: []Event{
 										Event{
@@ -131,6 +140,7 @@ var KnowledgeDefs = []KnowledgeDef{KnowledgeDef{DefName: "Log Database",
 
 							},
 						Scenario{
+							ScenarioName: "MagicFlingerBooted",
 							TypeScenarioID: 2, 
 							FailureCond: FailureCond{ 
 										TypeCondFailID: 1,
@@ -139,6 +149,7 @@ var KnowledgeDefs = []KnowledgeDef{KnowledgeDef{DefName: "Log Database",
 										},
 							States: []State{
 								State{ PassCondID: 2, 
+									TypeStateID: 1, 								
 									Message: "MagicFlinger successfully booted",
 									Events: []Event{
 										Event{

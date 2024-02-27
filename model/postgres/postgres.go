@@ -40,6 +40,7 @@ type KnowledgeDef struct {
 
 type Scenario struct {
 	ID        		uint `gorm:"primaryKey"`
+	ScenarioName		string
 	KnowledgeDefID		uint
 	TypeScenarioID		uint
 	TypeScenario 		TypeScenario  	//`gorm:"foreignkey:ScenarioId;references:ID"`
@@ -76,9 +77,16 @@ type State struct {
 	ID       	uint 		`gorm:"primaryKey"`
 	ScenarioID	uint
 	PassCondID	uint	
-	PassCond	PassCond 	
+	PassCond	PassCond
+	TypeStateID	uint
+	TypeState	TypeState 	
 	Message	string
 	Events		[]Event	`gorm:"foreignkey:StateID;references:ID;constraint:OnDelete:CASCADE"`
+}
+
+type TypeState struct {
+	ID               uint     	`json:"id" gorm:"primaryKey;"`
+	TypeStateName	string
 }
 
 type PassCond struct {
