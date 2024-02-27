@@ -1,6 +1,7 @@
 package producer
 import(
 	"argus-events/model/postgres"
+	"argus-events/pkg/parser"
 	"strconv"
 	"fmt"
 )
@@ -13,6 +14,7 @@ type ProducerBR struct {
     In chan ChanIn
     Consumer chan *Msg
     Done chan bool
+    Parser *parser.Parser
 }
 type Msg struct {
 	BugreportId int
@@ -32,6 +34,7 @@ func (p *ProducerBR) InitProducerDB()  {
 	p.In = make(chan ChanIn, 10 )
 	p.Consumer = make(chan *Msg)
 	p.Done = make(chan bool)
+	p.Parser = parser.NewParser()
 }
 
 func (p *ProducerBR ) ProducerBugRep( ) {

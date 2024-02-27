@@ -7,9 +7,9 @@ import (
 	"github.com/gorilla/mux"
 	"net/http"
 	"argus-events/model/postgres"
-	"argus-events/pkg/parse"
 	"strings"
-	"github.com/spf13/viper"	
+	"github.com/spf13/viper"
+	"argus-events/pkg/parser"		
 )
 
 
@@ -60,15 +60,17 @@ func main () {
 	initialize()
 	
 	postgres.NewConnection()
-	know := postgres.KnowledgeDef{}
-	know.GetKnowledgeDef(1)
-	events:=know.GetEvents()
 	postgres.NewConnectionSql()
+
 	var msgParser = make(chan prod.MsgWorker )
 	
 	p:=&prod.ProducerBR{}
 	p.InitProducerDB()
-	
+	for _,e := range (*p).Parser.Events {
+		fmt.Printf("%+v\n\n",e)
+	}
+	return
+		
 	log.Infof("Launch web server " )	
 	
     	go handleRequests( p )
@@ -79,7 +81,7 @@ func main () {
 		go consumer( &((*p).Consumer), &msgParser )
 	}
 	for i:=1;i<10;i++ {
-		go worker( &msgParser, events )
+		go worker( &msgParser, p.Parser )
 	}
 	<-(*p).Done
 	
@@ -120,49 +122,48 @@ func consumer( chConsumers *chan *prod.Msg, msgParser *chan prod.MsgWorker ) {
 	}
 }
 
-func worker( msgParser *chan prod.MsgWorker, events *map[uint]map[uint]map[uint]string ) {
-	for input :=range *msgParser {
+func worker( msgParser *chan prod.MsgWorker, parser *parser.Parser ) {
+	/*for input :=range *msgParser {
 		for scenarioId,scen := range *events {
 			for stateId,state := range scen {
 				for eventId,even := range state {
 					e:=parse.Event{ LogLine: even }
-					//split
-					e.GetWords()
-					//fmt.Println( "input ",input)
+
 					if e.Approximate( input.Message.Mess ) {
+						refEvent,refParam := UsedParam( even )
+
 						fmt.Println( "IT MATCHED ", input.Message.Mess )
 						eventIndex := postgres.EventIndex{
-													BugreportID: input.Message.BugreportId,
-													PartitionID: input.Message.PartitionId,
-													EventID: eventId,
-													Location: input.Message.Location,
-													BootID: input.Message.BootId,
-													BootName: input.Message.BootName,
-													FileID: input.Message.FileId,
-													FileName: input.Message.FileName,
-													LineNumber: input.Message.LineNumber,
-													Timestamp: input.Message.Timestamp,
-													Message: input.Message.Mess,
-													Parameters: []postgres.Parameter{},
-													}
+										BugreportID: input.Message.BugreportId,
+										PartitionID: input.Message.PartitionId,
+										EventID: eventId,
+										Location: input.Message.Location,
+										BootID: input.Message.BootId,
+										BootName: input.Message.BootName,
+										FileID: input.Message.FileId,
+										FileName: input.Message.FileName,
+										LineNumber: input.Message.LineNumber,
+										Timestamp: input.Message.Timestamp,
+										Message: input.Message.Mess,
+										Parameters: []postgres.Parameter{},
+										}
 																			
 						if strings.Contains(even,"%s") || strings.Contains(even,"%d") {
 							params := e.GetParameters( input.Message.Mess )
 							if len(*params)>0 {
 								fmt.Println( "IT MATCHED2 ", scenarioId,stateId,eventId, input.Message.Mess," param ",*params )
 								for o,p := range *params {
-									//fmt.Println( " value ",p," offset ",o )
 									eventIndex.Parameters=append(eventIndex.Parameters, postgres.Parameter{ Value:p, Offset:uint(o), } )
 								}
 							}
 						}
 
-						//fmt.Println( "Event index param ", eventIndex.Parameters )
+
 						*(input.EventIndex) = append( *(input.EventIndex),  eventIndex )
-						//fmt.Printf( "\n\n eventindex %+v\n ", (*input.EventIndex)[0].Parameters )
+
 						length:=len( *(input.EventIndex) )
 						if length > 0 {
-							//fmt.Printf( "\n\n eventindex %+v\n ", *(input.EventIndex) )
+
 							for _,p := range  eventIndex.Parameters {
 								(*input.EventIndex)[length-1].Parameters = append((*input.EventIndex)[length-1].Parameters,  p )
 							}
@@ -173,6 +174,6 @@ func worker( msgParser *chan prod.MsgWorker, events *map[uint]map[uint]map[uint]
 			}
 		}			
 		
-	}
+	}*/
 }
 
