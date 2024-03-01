@@ -22,6 +22,8 @@ import (
 	"github.com/spf13/viper"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
+	"gorm.io/gorm/logger"
+	logdebug "log"		
 	 "gorm.io/gorm/clause"
 	 "time"
 	"database/sql"
@@ -29,7 +31,7 @@ import (
 	//sqldblogger "github.com/simukti/sqldb-logger"
    	//"github.com/rs/zerolog"	
 	//zerologadapter "github.com/simukti/sqldb-logger/logadapter/zerologadapter"
-	//"os"		
+	"os"		
 )
 
 type KnowledgeDef struct {
@@ -80,7 +82,7 @@ type State struct {
 	PassCond	PassCond
 	TypeStateID	uint
 	TypeState	TypeState 	
-	Message	string
+	Message		string
 	Events		[]Event	`gorm:"foreignkey:StateID;references:ID;constraint:OnDelete:CASCADE"`
 }
 
@@ -102,10 +104,40 @@ type Event struct {
 	Log		string
 }
 
-type EventIndex struct {
+type ExtraKnow struct {
+	ID        		uint 		`json:"id" gorm:"primaryKey"`
+	BugreportID		int
+	PartitionID		int
+	KnowledgeDefID		uint
+	KnowledgeDef		KnowledgeDef
+	ExtraScenarios  	[]ExtraScenario 	`gorm:"constraint:OnDelete:CASCADE;foreignkey:ExtraKnowID;references:ID;"`	
+}
+
+type ExtraScenario struct {
+	ID        		uint 		`json:"id" gorm:"primaryKey"`
+	ExtraKnowID    		uint
+	ScenarioID		uint	
+	Scenario		Scenario	 		
+	ExtraStates  		[]ExtraState	`gorm:"constraint:OnDelete:CASCADE;foreignkey:ExtraScenarioID;references:ID;"`
+}
+
+type ExtraState struct {
+	ID        		uint 		`json:"id" gorm:"primaryKey"`
+	StateID			uint	
+	State			State
+	ExtraScenarioID    	uint 		
+	ExtraEvents	  	[]ExtraEvent	`gorm:"constraint:OnDelete:CASCADE;foreignkey:ExtraStateID;references:ID;"`
+}
+
+//Calculated entity
+type ExtraFailCond struct {
+	ExtraStateID 	uint
+	FailureCondID 		uint	
+}
+
+type ExtraEvent struct {
 	ID		uint
-	BugreportID	int
-	PartitionID	int
+	ExtraStateID  uint
 	EventID	uint
 	Event 		Event
 	Location	string
@@ -116,16 +148,16 @@ type EventIndex struct {
 	LineNumber 	uint
 	Timestamp	time.Time
 	Message	string
-	Parameters	[]Parameter  `gorm:"foreignkey:EventIndexID;references:ID;constraint:OnDelete:CASCADE"`
+	ExtraParameters	[]ExtraParameter  `gorm:"foreignkey:ExtraEventID;references:ID;constraint:OnDelete:CASCADE"`
 }
 
-func (EventIndex) TableName() string {
+/*func (EventIndex) TableName() string {
   return "event_index"
-}
+}*/
 
-type Parameter struct {
+type ExtraParameter struct {
 	ID		uint
-	EventIndexID	uint
+	ExtraEventID	uint
 	Offset		uint
 	Value		string
 }
@@ -144,7 +176,7 @@ func NewConnection() {
 	user := viper.GetString("postgres.user")
 	password := viper.GetString("postgres.password")
 
-	/*newLogger := logger.New(
+	newLogger := logger.New(
 	  logdebug.New(os.Stdout, "\r\n", logdebug.LstdFlags), // io writer
 	  logger.Config{
 	    SlowThreshold:              time.Second,   // Slow SQL threshold
@@ -152,14 +184,14 @@ func NewConnection() {
 	    IgnoreRecordNotFoundError: true,           // Ignore ErrRecordNotFound error for logger
 	    Colorful:                  false,          // Disable color
 	  },
-	)*/
+	)
 
 	dsn := fmt.Sprintf("host=%s user=%s dbname=%s sslmode=disable password=%s port=%s", host, user, name, password, port)
 
 	// open connection
 	// Note: if we can't make a connection to the database no err is being returned
-	//Db, err = gorm.Open(postgres.Open(dsn), &gorm.Config{Logger: newLogger,})
-	DbEvents, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	DbEvents, err = gorm.Open(postgres.Open(dsn), &gorm.Config{Logger: newLogger,})
+	//DbEvents, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
 
 	if err != nil {
 		log.Fatal(err)

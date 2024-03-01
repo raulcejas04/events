@@ -7,7 +7,7 @@ import (
 	//"gorm.io/driver/postgres"
 	//"gorm.io/gorm"
 	//"gorm.io/gorm/clause"
-	//"time"
+	"time"
 )
 
 // Setup automatically creates or updates the tables in Postgres
@@ -21,8 +21,11 @@ func Setup() {
 		&FailureCond{},
 		&TypeCondFail{},
 		&TypeErrorCond{},
-		&EventIndex{},
-		&Parameter{},
+		&ExtraKnow{},
+		&ExtraScenario{},
+		&ExtraState{},
+		&ExtraEvent{},
+		&ExtraParameter{},
  	)
 	err = DbEvents.AutoMigrate(
 		&Event{},
@@ -34,8 +37,11 @@ func Setup() {
 		&FailureCond{},
 		&TypeCondFail{},
 		&TypeErrorCond{},
-		&EventIndex{},
-		&Parameter{},
+		&ExtraKnow{},
+		&ExtraScenario{},
+		&ExtraState{},
+		&ExtraEvent{},
+		&ExtraParameter{},
 		
 	)
 
@@ -44,7 +50,7 @@ func Setup() {
 
 
 
-func InitLoad() {
+func InitLoadKnow() {
 
 var TypeScenarios = []TypeScenario{{TypeScenarioName: "fatal_error"},{TypeScenarioName: "single_shot"},{TypeScenarioName: "dynamic_state"},}
 DbEvents.Create(&TypeScenarios)	
@@ -166,6 +172,44 @@ var KnowledgeDefs = []KnowledgeDef{KnowledgeDef{DefName: "Log Database",
 					},
 				}
 DbEvents.Create(&KnowledgeDefs)
+
+}
+
+func InitLoadExtra() {
+
+var t = time.Now()
+
+var Extras = []ExtraKnow{ExtraKnow{	BugreportID: 2711,
+					PartitionID: 72,
+					KnowledgeDefID: 1,
+					ExtraScenarios: []ExtraScenario{
+						ExtraScenario{
+							ScenarioID: 3,
+							ExtraStates: []ExtraState{
+								ExtraState{ 
+									StateID: 5,
+									ExtraEvents: []ExtraEvent{
+										ExtraEvent{
+											EventID: 8,
+											Location: "L",
+											BootID: 1,
+											BootName: "boot_1",
+											FileID: 1,
+											FileName: "logcat.001",
+											LineNumber: 23,
+											Timestamp: t,
+											Message: "Test message",
+									 		},
+									 	},
+									},
+								},
+
+							},
+												
+						},
+					},
+				}
+DbEvents.Create(&Extras)
 
 }
 

@@ -1,6 +1,6 @@
 package postgres
 import (
-	"fmt"
+	//"fmt"
 	log "github.com/sirupsen/logrus"
 	"database/sql"
 	"time" 
