@@ -4,6 +4,7 @@ import(
 	"argus-events/pkg/parser"
 	"strconv"
 	"fmt"
+	log "github.com/sirupsen/logrus"	
 )
 
 type ChanIn struct {
@@ -22,20 +23,19 @@ type Msg struct {
 	PartitionId int
 	FileId  uint
 	FileName string
-	EventIndex *[]postgres.EventIndex
-	//Sql *sql.Stmt
+	ExtraEvent *[]postgres.ExtraEvent
+	LifeCycles *map[uint]LifeCycle //boot_id is the key
 }
 
 type MsgWorker struct {
 	Message postgres.Message
-	EventIndex *[]postgres.EventIndex
+	ExtraEvent *[]postgres.ExtraEvent
 	LifeCycles *map[uint]LifeCycle //boot_id is the key	  	
 }
 
 type LifeCycle struct {
 	Scenarios		map[uint]ScenarioProcessed
 	BootName		string
-	Events			[]EventsProcessed		
 }
 
 type ScenarioProcessed struct {
@@ -48,7 +48,7 @@ type StateProcessed struct {
 	Result			bool //successful or not for example all_found requires all events found	
 }
 
-type EventsProcessed struct {
+type EventProcessed struct {
 	Mess	string		//pattern
 	Line 	string		//log line
 	Result	bool		//found or not
@@ -61,7 +61,7 @@ func (l LifeCycle) GetEventsToProcess() {
 }
 
 //add the scenario if not exist, all states and foreach state all event to process
-func (l LifeCycle) AddState( line string, stateId uint, scenarioId uint, stateId, eventId uint) {
+func (l LifeCycle) AddState( line string, stateId uint, scenarioId uint, eventId uint) {
 
 
 }
@@ -70,28 +70,32 @@ func (p *ProducerBR) InitProducerDB()  {
 	p.In = make(chan ChanIn, 10 )
 	p.Consumer = make(chan *Msg)
 	p.Done = make(chan bool)
-	p.Parser = parser.NewParser()
+	p.Parser = parser.NewParser( 1 )
 }
 
 func (p *ProducerBR ) ProducerBugRep( ) {
 	for in := range (*p).In {
 		bugreportId,_:=strconv.Atoi(in.Id)
 		files,partitionId:=postgres.GetFilesId( bugreportId )
-		var eventIndex []postgres.EventIndex  
+		var extraEvent []postgres.ExtraEvent 
+		if len(*files)==0 {
+			log.Errorf("Bugreport %d does not contain files",bugreportId)
+			return
+		}
 		for _, inMsg := range *files {
 			msg := Msg{}
 			msg.FileId = inMsg.FileId
 			msg.FileName = inMsg.FileName
 			msg.BugreportId=bugreportId
 			msg.PartitionId=partitionId
-			msg.EventIndex=&eventIndex
+			msg.ExtraEvent=&extraEvent
 			(*p).Consumer <- &msg
 		}
 		msg:=Msg{}
 		msg.FileId=0
 		msg.BugreportId=bugreportId
 		msg.PartitionId=partitionId
-		msg.EventIndex=&eventIndex		
+		msg.ExtraEvent=&extraEvent		
 		(*p).Consumer <- &msg	
 	}
 	fmt.Println("Before closing channel")

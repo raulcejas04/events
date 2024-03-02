@@ -24,7 +24,7 @@ import (
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
 	logdebug "log"		
-	 "gorm.io/gorm/clause"
+	// "gorm.io/gorm/clause"
 	 "time"
 	"database/sql"
 	_ "github.com/lib/pq"
@@ -35,6 +35,7 @@ import (
 )
 
 type KnowledgeDef struct {
+	ID        	uint `gorm:"primaryKey"`
 	gorm.Model
 	DefName 	string
 	Scenarios  	[]Scenario 	`gorm:"constraint:OnDelete:CASCADE;foreignkey:KnowledgeDefID;references:ID;"`
@@ -108,6 +109,8 @@ type ExtraKnow struct {
 	ID        		uint 		`json:"id" gorm:"primaryKey"`
 	BugreportID		int
 	PartitionID		int
+	BootID			uint
+	BootName		string
 	KnowledgeDefID		uint
 	KnowledgeDef		KnowledgeDef
 	ExtraScenarios  	[]ExtraScenario 	`gorm:"constraint:OnDelete:CASCADE;foreignkey:ExtraKnowID;references:ID;"`	
@@ -141,11 +144,11 @@ type ExtraEvent struct {
 	EventID	uint
 	Event 		Event
 	Location	string
-	BootID		uint
-	BootName	string
 	FileID		uint
 	FileName	string
 	LineNumber 	uint
+	Pid		int
+	Tid		int
 	Timestamp	time.Time
 	Message	string
 	ExtraParameters	[]ExtraParameter  `gorm:"foreignkey:ExtraEventID;references:ID;constraint:OnDelete:CASCADE"`
@@ -232,32 +235,5 @@ func NewConnectionSql() {
 }
 
 
-func ( k *KnowledgeDef ) GetKnowledgeDef( id int )  {
 
 
-DbEvents.Preload("Scenarios.States.Events").Preload(clause.Associations).Find( k, id )
-
-return
-
-}
-
-func ( k *KnowledgeDef ) GetEvents() *map[uint]map[uint]map[uint]string {
-
-var events = make( map[uint]map[uint]map[uint]string )
-for _,s := range k.Scenarios {
-	for _,st := range s.States {
-		for _,e := range st.Events {
-			if _,ok:=events[s.ID]; !ok {
-				events[s.ID]=make( map[uint]map[uint]string )
-			}
-			if _,ok:=events[s.ID][st.ID]; !ok {
-				events[s.ID][st.ID]=make( map[uint]string )
-			}
-			if _,ok:=events[s.ID][st.ID][e.ID]; !ok {
-				events[s.ID][st.ID][e.ID]=e.Log
-			}
-		}
-	}
-}
-return &events
-}

@@ -2,7 +2,7 @@ package postgres
 import(
 	//"gorm.io/gorm"
 	//"fmt"
-	"gorm.io/gorm/clause"
+	//"gorm.io/gorm/clause"
 )
 
 type Learning struct {
@@ -36,12 +36,22 @@ type LearningParameter struct {
 }
 
 
-func GetLearning( bugreportID int, knowledgeDefID int ) *Learning {
+func NewLearning( bugreportID int, partitionID int, knowledgeDefID uint ) *Learning {
+	e:=ExtraKnow{ BugreportID: bugreportID, PartitionID: partitionID, KnowledgeDefID: knowledgeDefID }
+	var k *KnowledgeDef
+	k.GetKnowledgeDef( knowledgeDefID )
+	l := Learning{ ExtraKnow: e, DefName: (*k).DefName }
+	return &l
+}
 
-k:=GetKnowledgeDef( knowledgeDefID )
-e:=GetExtraKnow( bugreportID, knowledgeDefID )
 
-return &Learning{ ExtraKnow: e, DefName: k.DefName }
+func GetLearning( bugreportID int, knowledgeDefID uint, bootName string ) *Learning {
+
+var k *KnowledgeDef
+k.GetKnowledgeDef( knowledgeDefID )
+e:=GetFullExtraKnow( bugreportID, knowledgeDefID, bootName )
+
+return &Learning{ ExtraKnow: *e, DefName: (*k).DefName }
 }
 
 /*func (l *Learning ) makeFailureConds() {

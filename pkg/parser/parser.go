@@ -27,7 +27,7 @@ type Event struct{
 }
 
 type Parser struct {
-	knowledgeDef postgres.KnowledgeDef
+	KnowledgeDef postgres.KnowledgeDef
 	Events []Event
 
 }
@@ -77,10 +77,11 @@ func UsedParams(line string) []UsedParam {
 	return res
 }
 
-func NewParser() *Parser {
+func NewParser( knowledgeDef uint ) *Parser {
 	parser := Parser{}
 	know := postgres.KnowledgeDef{}
-	know.GetKnowledgeDef(1)
+	know.GetFullKnowledgeDef(knowledgeDef)
+	fmt.Printf("know %+v\n",know)
 	dbEvents:=*(know.GetEvents())
 	var events []Event
 	for scenarioId,scen := range dbEvents {
@@ -93,15 +94,15 @@ func NewParser() *Parser {
 			}
 		}
 	}
-	parser.knowledgeDef=know
+	parser.KnowledgeDef=know
 	parser.Events=append(parser.Events, events... )
 	return &parser
 }
 
-func (parser *Parser ) Approximate( line string ) bool {
+func (event *Event ) Approximate( line string ) bool {
 	//fmt.Println( "Words ",event.Words )
 	//fmt.Println( "Line ",line," totallengthword ", event.TotalLengthWords, len(line) )
-	for _,event := range  parser.Events {
+	//for _,event := range  parser.Events {
 		if event.TotalLengthWords > len(line) {
 			return false
 		}
@@ -141,7 +142,7 @@ func (parser *Parser ) Approximate( line string ) bool {
 		} else {
 			return false
 		}
-	}
+	//}
 	return false
 }
 

@@ -64,26 +64,27 @@ func main () {
 
 	var msgParser = make(chan prod.MsgWorker )
 	
-	p:=&prod.ProducerBR{}
-	p.InitProducerDB()
-	for _,e := range (*p).Parser.Events {
+	producer:= &prod.ProducerBR{}
+	producer.InitProducerDB()
+	parser:=parser.NewParser( 1 )
+	//p.InitProducerDB()
+	for _,e := range (*parser).Events {
 		fmt.Printf("%+v\n\n",e)
 	}
-	return
 		
 	log.Infof("Launch web server " )	
 	
-    	go handleRequests( p )
+    	go handleRequests( producer )
 
-	go (*p).ProducerBugRep()
+	go producer.ProducerBugRep()
 	
 	for i:=1;i<4;i++ {
-		go consumer( &((*p).Consumer), &msgParser )
+		go consumer( &(producer.Consumer), &msgParser )
 	}
 	for i:=1;i<10;i++ {
-		go worker( &msgParser, p.Parser )
+		go worker( &msgParser, producer.Parser )
 	}
-	<-(*p).Done
+	<-producer.Done
 	
 }
 
@@ -105,16 +106,16 @@ func consumer( chConsumers *chan *prod.Msg, msgParser *chan prod.MsgWorker ) {
 	for msg := range *chConsumers {
 		fmt.Println("Consumer file_id: ", msg.FileId)
 		if msg.FileId==0 {
-			postgres.DbEvents.Create( *msg.EventIndex )
+			postgres.DbEvents.Create( *msg.ExtraEvent )
 			fmt.Println( " Save Events ", msg.BugreportId, msg.PartitionId )
-			fmt.Printf( "%+v\n",*(msg.EventIndex))		
+			fmt.Printf( "%+v\n",*(msg.ExtraEvent))		
 		} else {
 			messages:=postgres.GetContents(msg.BugreportId,msg.PartitionId,msg.FileId,msg.FileName )
 			for _,m := range messages {
 				//fmt.Println( "tag ",m.Tag)
 				if strings.Contains(m.Tag,"ActivityManager" ) {
 					//fmt.Println( "tag ",m.tag,m.mess )
-					msgPar:= prod.MsgWorker{ Message: m, EventIndex: msg.EventIndex, LifeCycles: msg.LifeCycles }
+					msgPar:= prod.MsgWorker{ Message: m, ExtraEvent: msg.ExtraEvent, LifeCycles: msg.LifeCycles }
 					*msgParser <- msgPar
 				}
 			}
@@ -124,60 +125,57 @@ func consumer( chConsumers *chan *prod.Msg, msgParser *chan prod.MsgWorker ) {
 
 func worker( msgParser *chan prod.MsgWorker, parser *parser.Parser ) {
 	for input :=range *msgParser {
-	
-		lc:=input.LifeCycles[input.Message.BootId]
-		evp:=lc.GetEventsToProcess()
-		for scenarioId,scen := range *events {
-			for stateId,state := range scen {
-				for eventId,even := range state {
-					/*e:=parse.Event{ LogLine: even }
+		//TODO get lifecycles context
+		/*lc:=input.LifeCycles[input.Message.BootId]
+		evp:=lc.GetEventsToProcess()*/
+		for _,e := range (*parser).Events {
+			//scenarioId:=e.ScenarioId
+			//stateId:=e.StateId
+			//eventId:=e.EventId
+			
+					//e:=parse.Event{ LogLine: even }
 
-					if e.Approximate( input.Message.Mess ) {
-						refEvent,refParam := UsedParam( even )
+			if e.Approximate( input.Message.Mess ) {
+						//refEvent,refParam := UsedParam( even )
 
-						fmt.Println( "IT MATCHED ", input.Message.Mess )
-						eventIndex := postgres.EventIndex{
-										BugreportID: input.Message.BugreportId,
-										PartitionID: input.Message.PartitionId,
-										EventID: eventId,
-										Location: input.Message.Location,
-										BootID: input.Message.BootId,
-										BootName: input.Message.BootName,
-										FileID: input.Message.FileId,
-										FileName: input.Message.FileName,
-										LineNumber: input.Message.LineNumber,
-										Timestamp: input.Message.Timestamp,
-										Message: input.Message.Mess,
-										Parameters: []postgres.Parameter{},
-										}
-																			
-						if strings.Contains(even,"%s") || strings.Contains(even,"%d") {
-							params := e.GetParameters( input.Message.Mess )
-							if len(*params)>0 {
-								fmt.Println( "IT MATCHED2 ", scenarioId,stateId,eventId, input.Message.Mess," param ",*params )
-								for o,p := range *params {
-									eventIndex.Parameters=append(eventIndex.Parameters, postgres.Parameter{ Value:p, Offset:uint(o), } )
+				fmt.Println( "IT MATCHED ", input.Message.Mess )
+				/*eventIndex := postgres.ExtraEvent{
+								EventID: eventId,
+								Location: input.Message.Location,
+								Pid: input.Message.Pid,
+								Tid: input.Message.Tid,
+								FileID: input.Message.FileId,
+								FileName: input.Message.FileName,
+								LineNumber: input.Message.LineNumber,
+								Timestamp: input.Message.Timestamp,
+								Message: input.Message.Mess,
+								ExtraParameters: []postgres.ExtraParameter{},
 								}
-							}
-						}
-
-
-						*(input.EventIndex) = append( *(input.EventIndex),  eventIndex )
-
-						length:=len( *(input.EventIndex) )
-						if length > 0 {
-
-							for _,p := range  eventIndex.Parameters {
-								(*input.EventIndex)[length-1].Parameters = append((*input.EventIndex)[length-1].Parameters,  p )
-							}
+				*/															
+				/*if strings.Contains(even,"%s") || strings.Contains(even,"%d") {
+					params := e.GetParameters( input.Message.Mess )
+					if len(*params)>0 {
+						fmt.Println( "IT MATCHED2 ", scenarioId,stateId,eventId, input.Message.Mess," param ",*params )
+						for o,p := range *params {
+							eventIndex.Parameters=append(eventIndex.Parameters, postgres.Parameter{ Value:p, Offset:uint(o), } )
 						}
 					}
-					*/
 				}
 
+
+				*(input.EventIndex) = append( *(input.EventIndex),  eventIndex )
+
+				length:=len( *(input.EventIndex) )
+				if length > 0 {
+
+					for _,p := range  eventIndex.Parameters {
+						(*input.EventIndex)[length-1].Parameters = append((*input.EventIndex)[length-1].Parameters,  p )
+					}
+				}*/
 			}
-		}			
-		
+		}
+
 	}
+
 }
 

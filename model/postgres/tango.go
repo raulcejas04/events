@@ -61,6 +61,8 @@ type Message struct{
 	BugreportId int
 	PartitionId int
 	Mess string
+	Pid int
+	Tid int
 	Tag string
 	Location string
 	Timestamp time.Time
@@ -97,7 +99,7 @@ func GetContents(bugreportId int, partitionId int, fileId uint, fileName string)
 	}
 	
 	log.Info( "bugreport ", bugreportId, " partition_id ", partitionId, " file_id ", fileId )
-	rows, err = DbSql.Query("SELECT line_number,tag,message,label_id,timestamp,location FROM contents WHERE bugreport_id=$1 and partition_id=$2 and file_id=$3", bugreportId, partitionId, fileId)
+	rows, err = DbSql.Query("SELECT pid,tid,line_number,tag,message,label_id,timestamp,location FROM contents WHERE bugreport_id=$1 and partition_id=$2 and file_id=$3", bugreportId, partitionId, fileId)
 	defer rows.Close()
 
 	if err != nil {
@@ -106,17 +108,19 @@ func GetContents(bugreportId int, partitionId int, fileId uint, fileName string)
 
 	var messages []Message
 	for rows.Next() {
+		var pid int
+		var tid int
 		var line_number uint
 		var message string
 		var tag string
 		var label_id int
 		var timestamp time.Time
 		var location string
-		if err := rows.Scan(&line_number, &tag,&message,&label_id,&timestamp,&location); err != nil {
+		if err := rows.Scan(&pid,&tid,&line_number, &tag,&message,&label_id,&timestamp,&location); err != nil {
 			log.Fatal(err)
 		}
 		boot:=labels[label_id]
-		messages = append(messages, Message{ BugreportId: bugreportId, PartitionId: partitionId, Location: location, Tag: tag, Mess: message, Timestamp: timestamp, BootId: boot.BootId, BootName: boot.BootName, FileId: fileId, FileName: fileName, LineNumber: line_number })
+		messages = append(messages, Message{ BugreportId: bugreportId, PartitionId: partitionId, Location: location, Pid:pid, Tid:tid, Tag: tag, Mess: message, Timestamp: timestamp, BootId: boot.BootId, BootName: boot.BootName, FileId: fileId, FileName: fileName, LineNumber: line_number })
 	}
 	//fmt.Println(" fileid 2 ", fileId, len(messages))
 	return messages

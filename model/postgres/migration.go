@@ -182,6 +182,8 @@ var t = time.Now()
 var Extras = []ExtraKnow{ExtraKnow{	BugreportID: 2711,
 					PartitionID: 72,
 					KnowledgeDefID: 1,
+					BootID: 1,
+					BootName: "boot_1",					
 					ExtraScenarios: []ExtraScenario{
 						ExtraScenario{
 							ScenarioID: 3,
@@ -192,8 +194,6 @@ var Extras = []ExtraKnow{ExtraKnow{	BugreportID: 2711,
 										ExtraEvent{
 											EventID: 8,
 											Location: "L",
-											BootID: 1,
-											BootName: "boot_1",
 											FileID: 1,
 											FileName: "logcat.001",
 											LineNumber: 23,

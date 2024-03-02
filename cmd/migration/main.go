@@ -16,7 +16,8 @@ func main() {
 	postgres.NewConnection()
 	
 	postgres.Setup()
-	postgres.InitLoad()
+	postgres.InitLoadKnow()
+	postgres.InitLoadExtra()
 	know := postgres.KnowledgeDef{}
 	know.GetKnowledgeDef(1)
 	//fmt.Printf("knw %+v\n",knw )
