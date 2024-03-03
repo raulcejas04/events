@@ -100,64 +100,43 @@ func NewParser( knowledgeDef uint ) *Parser {
 }
 
 func (event *Event ) Approximate( line string ) bool {
-	//fmt.Println( "Words ",event.Words )
-	//fmt.Println( "Line ",line," totallengthword ", event.TotalLengthWords, len(line) )
-	//for _,event := range  parser.Events {
-		if event.TotalLengthWords > len(line) {
-			return false
-		}
+
+	if event.TotalLengthWords > len(line) {
+		//fmt.Println( "Line ",line," totallengthword ", event.TotalLengthWords, len(line) )			
+		return false
+	}
  
-		i:=0
-		lenLine:=len( line)
-		var matched []bool
-		for _,word := range event.Words {
-			//fmt.Println( " aprox 1 ", word )
-			lenWord:=len(word)
-			find:=true
-			for j:=i;j<lenLine;j++ {
-				if len(line[j:])<len(word) {
-					find=false
-					break
-				}
-				//fmt.Println( " aprox 2 ",word," j ",j," lenw ",lenWord," word cal -", line[j:j+lenWord],"-" );
-				if line[j:j+lenWord]==word {
-					//fmt.Println( "Matched")
-					i=i+lenWord
-					matched=append(matched, true )
-					break
-				} 
-			
-			}
-			if !find {
-				break
-			}	
-		}
-		if len( event.Words ) == len(matched ) {
-			for k,_ :=range event.Words {
-				if !matched[k] {
-					return false
-				}
-			}
-			return true
+	x:=0
+	res:=true
+	for _,word := range event.Words {
+		y := strings.Index(line[x:], word)
+		//fmt.Printf("----x line %s\n word %s\n x %+v\n words %+v\n\n", line[x:], word, x, event.Words)
+		if y > -1 {
+			x=x+y+len(word)
 		} else {
-			return false
+			res=false
+			break
 		}
-	//}
-	return false
+	}
+
+	return res
 }
 
-func ( event *Event ) GetParameters( input string ) *[]string {
-	if strings.Contains(event.LogLine, "%s") || strings.Contains(event.LogLine, "%d") {
-		pattern:= regexp.MustCompile( event.LlRegex )
-		parameters := pattern.FindStringSubmatch( input )
-		if len(parameters)>0 {
-			fmt.Println( "PARAMETERS ", parameters )
-			return &parameters
+func ( event *Event ) ItMatchParam( input string ) (bool,*[]string) {
+	pattern:= regexp.MustCompile( event.LlRegex )
+	if pattern.MatchString(input) {
+		if strings.Contains(event.LogLine, "%s") || strings.Contains(event.LogLine, "%d") {
+
+			parameters := pattern.FindStringSubmatch( input )
+			if len(parameters)>0 {
+				return true,&parameters
+			}
 		}
+		return true,nil
 	} else {
-		return nil
+		return false,nil
 	}
-	return nil
+	return false,nil
 }
 
 func ( event *Event ) RegularExpression() {
@@ -169,7 +148,7 @@ func ( event *Event ) RegularExpression() {
 func ( event *Event ) GetWords( ) {
 
 	re := regexp.MustCompile("%(d|s|\\d)")
-	newStr := re.ReplaceAllString(event.LogLine, "")
+	newStr := re.ReplaceAllString(event.LogLine, " ")
 	event.Words=strings.Fields(newStr)
 	for _,w :=range event.Words {
 		event.TotalLengthWords+=len(w)

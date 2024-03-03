@@ -7,7 +7,7 @@ import (
 	"github.com/gorilla/mux"
 	"net/http"
 	"argus-events/model/postgres"
-	"strings"
+	//"strings"
 	"github.com/spf13/viper"
 	"argus-events/pkg/parser"		
 )
@@ -102,9 +102,9 @@ func initialize() {
 
 
 
-func consumer( chConsumers *chan *prod.Msg, msgParser *chan prod.MsgWorker ) {
+func consumer( chConsumers *chan *prod.Msg, msgWorker *chan prod.MsgWorker ) {
 	for msg := range *chConsumers {
-		fmt.Println("Consumer file_id: ", msg.FileId)
+		//fmt.Println("Consumer file_id: ", msg.FileId)
 		if msg.FileId==0 {
 			postgres.DbEvents.Create( *msg.ExtraEvent )
 			fmt.Println( " Save Events ", msg.BugreportId, msg.PartitionId )
@@ -113,22 +113,28 @@ func consumer( chConsumers *chan *prod.Msg, msgParser *chan prod.MsgWorker ) {
 			messages:=postgres.GetContents(msg.BugreportId,msg.PartitionId,msg.FileId,msg.FileName )
 			for _,m := range messages {
 				//fmt.Println( "tag ",m.Tag)
-				if strings.Contains(m.Tag,"ActivityManager" ) {
-					//fmt.Println( "tag ",m.tag,m.mess )
+				//if strings.Contains(m.Tag,"ActivityManager" ) {
+					//fmt.Printf( "\ntag %+v\n",m.Mess )
 					msgPar:= prod.MsgWorker{ Message: m, ExtraEvent: msg.ExtraEvent, LifeCycles: msg.LifeCycles }
-					*msgParser <- msgPar
-				}
+					*msgWorker <- msgPar
+				//}
 			}
 		}	
 	}
 }
 
-func worker( msgParser *chan prod.MsgWorker, parser *parser.Parser ) {
-	for input :=range *msgParser {
+func worker( msgWorker *chan prod.MsgWorker, parser *parser.Parser ) {
+	for input :=range *msgWorker {
+		//fmt.Printf( "worker mess %+v\n",input.Message.Mess )
+		for _,e := range (*parser).Events {
+		//fmt.Printf("\nevent %+v\n",e)
+
 		//TODO get lifecycles context
 		/*lc:=input.LifeCycles[input.Message.BootId]
 		evp:=lc.GetEventsToProcess()*/
-		for _,e := range (*parser).Events {
+		//fmt.Println( " Message ",input.Message.Mess )
+
+
 			//scenarioId:=e.ScenarioId
 			//stateId:=e.StateId
 			//eventId:=e.EventId
@@ -136,9 +142,17 @@ func worker( msgParser *chan prod.MsgWorker, parser *parser.Parser ) {
 					//e:=parse.Event{ LogLine: even }
 
 			if e.Approximate( input.Message.Mess ) {
+				fmt.Printf( "\n\n**********IT MATCHED %s\n\n", input.Message.Mess )
+				match,param:= e.ItMatchParam( input.Message.Mess ) 
+				if match {
+					fmt.Printf("\n\n**********IT MATCHED2 %s\n %+v\n\n", input.Message.Mess, *param )
+				
+				}			
+				
+				
 						//refEvent,refParam := UsedParam( even )
 
-				fmt.Println( "IT MATCHED ", input.Message.Mess )
+
 				/*eventIndex := postgres.ExtraEvent{
 								EventID: eventId,
 								Location: input.Message.Location,
