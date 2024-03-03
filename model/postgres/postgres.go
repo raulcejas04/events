@@ -84,7 +84,7 @@ type State struct {
 	TypeStateID	uint
 	TypeState	TypeState 	
 	Message		string
-	StartEnd		string		//true_state or false_state only to identify start and end and in the future others	
+	StartEnd	string		//true, false or whatever in the future others	
 	Events		[]Event	`gorm:"foreignkey:StateID;references:ID;constraint:OnDelete:CASCADE"`
 }
 

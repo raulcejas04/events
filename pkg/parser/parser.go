@@ -90,6 +90,11 @@ func NewParser( knowledgeDef uint ) *Parser {
 	return &parser
 }
 
+func (parse *Parse ) GetEvents( scenarioId int, stateId int ) {
+
+
+}
+
 func (event *Event ) Approximate( line string ) bool {
 
 	if event.TotalLengthWords > len(line) {

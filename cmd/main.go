@@ -124,6 +124,7 @@ func consumer( chConsumers *chan *prod.Msg, msgWorker *chan prod.MsgWorker ) {
 }
 
 func worker( msgWorker *chan prod.MsgWorker, parser *parser.Parser ) {
+	var Results prod.Results
 	for input :=range *msgWorker {
 		//fmt.Printf( "worker mess %+v\n",input.Message.Mess )
 		for _,e := range (*parser).Events {
@@ -147,14 +148,8 @@ func worker( msgWorker *chan prod.MsgWorker, parser *parser.Parser ) {
 				match,param:= e.ItMatchParam( input.Message.Mess ) 
 				if match {
 					fmt.Printf("\n\n**********IT MATCHED2 %s\n %+v\n\n", input.Message.Mess, *param )
-				
-				}			
-				
-				
-						//refEvent,refParam := UsedParam( even )
 
-
-				/*eventIndex := postgres.ExtraEvent{
+					extraEventIndex := postgres.ExtraEvent{
 								EventID: eventId,
 								Location: input.Message.Location,
 								Pid: input.Message.Pid,
@@ -166,16 +161,21 @@ func worker( msgWorker *chan prod.MsgWorker, parser *parser.Parser ) {
 								Message: input.Message.Mess,
 								ExtraParameters: []postgres.ExtraParameter{},
 								}
-				*/															
-				/*if strings.Contains(even,"%s") || strings.Contains(even,"%d") {
-					params := e.GetParameters( input.Message.Mess )
-					if len(*params)>0 {
-						fmt.Println( "IT MATCHED2 ", scenarioId,stateId,eventId, input.Message.Mess," param ",*params )
-						for o,p := range *params {
-							eventIndex.Parameters=append(eventIndex.Parameters, postgres.Parameter{ Value:p, Offset:uint(o), } )
+					if strings.Contains(e.LogLine,"%s") || strings.Contains(e.LogLine,"%d") {
+						params := e.GetParameters( input.Message.Mess )
+						if len(*params)>0 {
+							fmt.Println( "IT MATCHED2 ", scenarioId,stateId,eventId, input.Message.Mess," param ",*params )
+							for o,p := range *params {
+								eventIndex.Parameters=append(eventIndex.Parameters, postgres.Parameter{ Value:p, Offset:uint(o), } )
+							}
 						}
 					}
-				}
+					Results.AddLine( parser, &input.Message.Mess, bootId, scenarioId,  stateId, &extraEventIndex )
+				
+				}			
+				
+				
+				/*
 
 
 				*(input.EventIndex) = append( *(input.EventIndex),  eventIndex )

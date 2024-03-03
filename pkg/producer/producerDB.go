@@ -35,21 +35,24 @@ type MsgWorker struct {
 }
 
 type ResultEvent struct {
+	EventID			uint
 	postgres.ExtraEvent
 }
 
 
 type ResultState struct {
-	ID		uint
+	StateID		uint
+	StartEnd 	string
 	ResultEvents	[]ResultEvent
 }
 
 type ResultScenario struct {
-	ID		uint
+	ScenarioID	uint
 	Timestamp 	time.Time
 	TypeScenario	string //fatal_error, dynamic_state, etc.
-	Start		ResultState
-	End		ResultState
+	StartID		uint	//true_state_id
+	EndID		uint	//false_state_id
+	ResultStates	ResultState[]
 }
 
 type Result struct {
@@ -67,13 +70,34 @@ func (r Results) GetEventsToProcess() {
 }
 
 //add the scenario if not exist, all states and foreach state all event to process
-func (l *Results) AddLine( parser *parser.Parser, line string, bootId int, scenarioId uint,  stateId uint, eventId uint) {
-	scenarios:=(*Results)[bootId].ResultScenarios
-	//line belonf to a true or false state
-	for _,sce := range scenarios {
-		if sce.ID==scenarioID {
-			eventsOfState:=parser.GetEvents( scenarioId, stateId )
-				
+func (l *Results) AddLine( parser *parser.Parser, line *string, bootId int, scenarioId uint,  stateId uint, eventId uint, newExtraEvent *ExtraEvent ) {
+	if (*Results)[bootId]==nil {
+		(*Results)[bootId]=Result{}
+	}
+	scenarios:=(*Results)[bootId].ResultScenarios	
+	
+	
+	//was the line processed ?
+	for ksce,sce := range scenarios {
+		if sce.ScenarioID==scenarioID {
+			for kst,st := range sce.ResultStates {
+				if sce.StateID==stateId {
+					for keve,eve := range start.ResultEvents {
+						if IDEvent == eve.eventID {
+							//event exists
+							if sce.TypeScenarioName == "dynamic_state" {
+								newResultEvent := ResultEvent{
+									EventID: eventId,
+									ExtraEvent: &newExtraEvent
+								}
+								(*Results)[bootId].ResultScenarios[ksce].ResultStates[kst].ResultEvents=append((*Results)[bootId].ResultScenarios[ksce].ResultStates[kst].ResultEvents, newResultEvent )		
+							} else {
+								return
+							}
+						}
+					}
+				}
+			}	
 		}
 	}
 	//if belong to a true state and it doesn't exist any event create a new scenario
