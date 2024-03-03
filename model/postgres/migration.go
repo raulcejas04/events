@@ -74,7 +74,8 @@ var KnowledgeDefs = []KnowledgeDef{KnowledgeDef{DefName: "Log Database",
 							TypeScenarioID: 3, 
 							States: []State{
 								State{ PassCondID: 1,
-									TypeStateID: 1, 
+									TypeStateID: 1,
+									StartEnd: "S",
 									Message: "Application %0%2 starting",
 									Events: []Event{
 										Event{
@@ -85,7 +86,8 @@ var KnowledgeDefs = []KnowledgeDef{KnowledgeDef{DefName: "Log Database",
 									 	},
 									},
 								State{ PassCondID: 1, 
-									TypeStateID: 2, 								
+									TypeStateID: 2,
+									StartEnd: "E",
 									Message: "Application %0%2 stopped",
 									Events: []Event{
 										Event{
@@ -114,7 +116,8 @@ var KnowledgeDefs = []KnowledgeDef{KnowledgeDef{DefName: "Log Database",
 							TypeScenarioID: 3, 
 							States: []State{
 								State{ PassCondID: 1, 
-									TypeStateID: 1, 								
+									TypeStateID: 1, 
+									StartEnd: "S", 
 									Message: "Displays are switched on",
 									Events: []Event{
 										Event{
@@ -131,7 +134,8 @@ var KnowledgeDefs = []KnowledgeDef{KnowledgeDef{DefName: "Log Database",
 									 	},
 									},
 								State{ PassCondID: 1, 
-									TypeStateID: 2, 								
+									TypeStateID: 2,
+									StartEnd: "E",
 									Message: "Displays are switched off",
 									Events: []Event{
 										Event{
@@ -155,7 +159,8 @@ var KnowledgeDefs = []KnowledgeDef{KnowledgeDef{DefName: "Log Database",
 										},
 							States: []State{
 								State{ PassCondID: 2, 
-									TypeStateID: 1, 								
+									TypeStateID: 1,
+									StartEnd: "S", 								
 									Message: "MagicFlinger successfully booted",
 									Events: []Event{
 										Event{

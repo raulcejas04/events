@@ -143,6 +143,7 @@ func worker( msgWorker *chan prod.MsgWorker, parser *parser.Parser ) {
 
 			if e.Approximate( input.Message.Mess ) {
 				fmt.Printf( "\n\n**********IT MATCHED %s\n\n", input.Message.Mess )
+				e.ReplValueParams()
 				match,param:= e.ItMatchParam( input.Message.Mess ) 
 				if match {
 					fmt.Printf("\n\n**********IT MATCHED2 %s\n %+v\n\n", input.Message.Mess, *param )

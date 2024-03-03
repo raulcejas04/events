@@ -21,6 +21,7 @@ type Event struct{
 	EventId uint
 	LogLine string //Log line original without parameters
 	LlRegex string //with regex
+	Replacement []string
 	Words []string
 	TotalLengthWords int
 	UsedParams []UsedParam
@@ -29,18 +30,7 @@ type Event struct{
 type Parser struct {
 	KnowledgeDef postgres.KnowledgeDef
 	Events []Event
-
 }
-
-/*func main() {
-	input := "Start proc 6578:com.android.provision/u0a160 for activity {com.android.provision/com.android.provision.DefaultActivity}"
-	e:=Event{ LogLine: "Start proc %d:%s for activity {%s/%s}" }
-	//split
-	e.getWords()
-	if e.approximate( input ) {
-		fmt.Println( "it matched" )
-	}
-}*/
 
 
 func UsedParams(line string) []UsedParam {
@@ -90,6 +80,7 @@ func NewParser( knowledgeDef uint ) *Parser {
 				event:= Event{ScenarioId: scenarioId, StateId: stateId, EventId: eventId, LogLine:e}
 				event.GetWords()
 				event.RegularExpression()
+				event.InitValueParams()
 				events=append(events, event)
 			}
 		}
@@ -138,6 +129,22 @@ func ( event *Event ) ItMatchParam( input string ) (bool,*[]string) {
 	}
 	return false,nil
 }
+
+//in the constructor
+func (event *Event ) InitValueParams( )  {
+	re := regexp.MustCompile( "%\\d+%\\d+" )
+	event.Replacement=re.FindStringSubmatch( event.LogLine ) 
+	return
+}
+
+//in the matching
+func (event *Event ) ReplValueParams( )  {
+	for _,rep := range event.Replacement {
+		fmt.Printf( "rep %+v\n",rep )
+	}
+	return
+}
+
 
 func ( event *Event ) RegularExpression() {
 	event.LlRegex=strings.Replace( event.LogLine, "%s", "(.+)", -1)

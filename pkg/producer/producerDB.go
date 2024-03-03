@@ -5,6 +5,7 @@ import(
 	"strconv"
 	"fmt"
 	log "github.com/sirupsen/logrus"	
+	"time"
 )
 
 type ChanIn struct {
@@ -16,7 +17,7 @@ type ProducerBR struct {
     Consumer chan *Msg
     Done chan bool
     Parser *parser.Parser
-    LifeCycles *map[uint]LifeCycle //boot_id is the key
+    LifeCycles *map[uint]Results //boot_id is the key
 }
 type Msg struct {
 	BugreportId int
@@ -24,46 +25,63 @@ type Msg struct {
 	FileId  uint
 	FileName string
 	ExtraEvent *[]postgres.ExtraEvent
-	LifeCycles *map[uint]LifeCycle //boot_id is the key
+	LifeCycles *Results //boot_id is the key
 }
 
 type MsgWorker struct {
 	Message postgres.Message
 	ExtraEvent *[]postgres.ExtraEvent
-	LifeCycles *map[uint]LifeCycle //boot_id is the key	  	
+	LifeCycles *Results //boot_id is the key	  	
 }
 
-type LifeCycle struct {
-	Scenarios		map[uint]ScenarioProcessed
-	BootName		string
+type ResultEvent struct {
+	postgres.ExtraEvent
 }
 
-type ScenarioProcessed struct {
-	States			map[uint]StateProcessed
-	Result			bool //if all states where processed
+
+type ResultState struct {
+	ID		uint
+	ResultEvents	[]ResultEvent
 }
 
-type StateProcessed struct {
-	Events			map[uint]EventProcessed
-	Result			bool //successful or not for example all_found requires all events found	
+type ResultScenario struct {
+	ID		uint
+	Timestamp 	time.Time
+	TypeScenario	string //fatal_error, dynamic_state, etc.
+	Start		ResultState
+	End		ResultState
 }
 
-type EventProcessed struct {
-	Mess	string		//pattern
-	Line 	string		//log line
-	Result	bool		//found or not
-
+type Result struct {
+	BootName 	string
+	ResultScenarios	map[int64]ResultScenario //key is unix time (int64)
 }
 
-func (l LifeCycle) GetEventsToProcess() {
+type Results map[uint]Result //key is boot_id
+
+
+
+func (r Results) GetEventsToProcess() {
 
 
 }
 
 //add the scenario if not exist, all states and foreach state all event to process
-func (l LifeCycle) AddState( line string, stateId uint, scenarioId uint, eventId uint) {
-
-
+func (l *Results) AddLine( parser *parser.Parser, line string, bootId int, scenarioId uint,  stateId uint, eventId uint) {
+	scenarios:=(*Results)[bootId].ResultScenarios
+	//line belonf to a true or false state
+	for _,sce := range scenarios {
+		if sce.ID==scenarioID {
+			eventsOfState:=parser.GetEvents( scenarioId, stateId )
+				
+		}
+	}
+	//if belong to a true state and it doesn't exist any event create a new scenario
+	
+	//if belong ot a true state and it is a any_found 
+	
+	
+	
 }
 
 func (p *ProducerBR) InitProducerDB()  {
