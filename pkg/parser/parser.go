@@ -19,6 +19,7 @@ type Event struct{
 	ScenarioId uint
 	StateId uint
 	EventId uint
+	StartEnd string
 	LogLine string //Log line original without parameters
 	LlRegex string //with regex
 	Replacement []string
@@ -76,8 +77,10 @@ func NewParser( knowledgeDef uint ) *Parser {
 	var events []Event
 	for scenarioId,scen := range dbEvents {
 		for stateId,state := range scen {
+			stateRow:=postgres.State{}
+			stateRow.GetState( stateId )
 			for eventId,e := range state {	
-				event:= Event{ScenarioId: scenarioId, StateId: stateId, EventId: eventId, LogLine:e}
+				event:= Event{ScenarioId: scenarioId, StateId: stateId, EventId: eventId, LogLine:e, StartEnd: stateRow.StartEnd}
 				event.GetWords()
 				event.RegularExpression()
 				event.InitValueParams()
@@ -90,9 +93,14 @@ func NewParser( knowledgeDef uint ) *Parser {
 	return &parser
 }
 
-func (parse *Parse ) GetEvents( scenarioId int, stateId int ) {
 
-
+func (parse *Parser ) GetStateStartEnd( scenarioId uint, stateId uint ) string {
+	for _,e := range parse.Events {
+		if e.ScenarioId==scenarioId && e.StateId==stateId {
+			return e.StartEnd
+		}
+	}
+	return ""
 }
 
 func (event *Event ) Approximate( line string ) bool {
@@ -166,4 +174,18 @@ func ( event *Event ) GetWords( ) {
 		event.TotalLengthWords+=len(w)
 	}
 
+}
+
+func ( event *Event ) GetParameters( input string ) *[]string {
+	if strings.Contains(event.LogLine, "%s") || strings.Contains(event.LogLine, "%d") {
+		pattern:= regexp.MustCompile( event.LlRegex )
+		parameters := pattern.FindStringSubmatch( input )
+		if len(parameters)>0 {
+			//fmt.Println( "PARAMETERS ", parameters )
+			return &parameters
+		}
+	} else {
+		return nil
+	}
+	return nil
 }

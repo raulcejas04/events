@@ -52,7 +52,7 @@ type Scenario struct {
 }
 
 type TypeScenario struct {
-	ID               int     	`json:"id" gorm:"primaryKey;"`
+	ID               uint     	`json:"id" gorm:"primaryKey;"`
 	TypeScenarioName string
 }
 

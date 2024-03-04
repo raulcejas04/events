@@ -36,3 +36,38 @@ for _,s := range k.Scenarios {
 }
 return &events
 }
+
+func ( s *State ) GetState( id uint ) {
+DbEvents.Find( s, id )
+}
+
+func GetAllTypeScenario() map[uint]string {
+
+var TypeScenarios []TypeScenario
+DbEvents.Find( &TypeScenarios )
+
+res := make( map[uint]string )
+for _,t := range TypeScenarios {
+	res[t.ID]=t.TypeScenarioName
+}
+return res
+}
+
+func GetAllStates() map[uint]map[uint]State {
+
+var states []State
+DbEvents.Find( &states )
+
+var res map[uint]map[uint]State
+res=make(map[uint]map[uint]State)
+
+for _,s := range states {
+	if _,ok:=res[s.ScenarioID]; !ok {
+		res[s.ScenarioID]=make(map[uint]State)
+	} 
+	res[s.ScenarioID][s.ID]=s  //keys scenarioId, stateId
+}
+
+return res
+}
+

@@ -7,7 +7,7 @@ import (
 	"github.com/gorilla/mux"
 	"net/http"
 	"argus-events/model/postgres"
-	//"strings"
+	"strings"
 	"github.com/spf13/viper"
 	"argus-events/pkg/parser"		
 )
@@ -105,16 +105,17 @@ func initialize() {
 func consumer( chConsumers *chan *prod.Msg, msgWorker *chan prod.MsgWorker ) {
 	for msg := range *chConsumers {
 		//fmt.Println("Consumer file_id: ", msg.FileId)
+		fmt.Printf( "\nlifecycles %+v\n",(*((*msg).LifeCycles)).Lc )
 		if msg.FileId==0 {
-			postgres.DbEvents.Create( *msg.ExtraEvent )
+			//postgres.DbEvents.Create( *msg.ExtraEvent )
 			fmt.Println( " Save Events ", msg.BugreportId, msg.PartitionId )
-			fmt.Printf( "%+v\n",*(msg.ExtraEvent))		
+			fmt.Printf( "%+v\n",(*((*msg).LifeCycles)).Lc)		
 		} else {
 			messages:=postgres.GetContents(msg.BugreportId,msg.PartitionId,msg.FileId,msg.FileName )
 			for _,m := range messages {
 				//fmt.Println( "tag ",m.Tag)
 				//if strings.Contains(m.Tag,"ActivityManager" ) {
-					//fmt.Printf( "\ntag %+v\n",m.Mess )
+					
 					msgPar:= prod.MsgWorker{ Message: m, ExtraEvent: msg.ExtraEvent, LifeCycles: msg.LifeCycles }
 					*msgWorker <- msgPar
 				//}
@@ -124,7 +125,7 @@ func consumer( chConsumers *chan *prod.Msg, msgWorker *chan prod.MsgWorker ) {
 }
 
 func worker( msgWorker *chan prod.MsgWorker, parser *parser.Parser ) {
-	var Results prod.Results
+
 	for input :=range *msgWorker {
 		//fmt.Printf( "worker mess %+v\n",input.Message.Mess )
 		for _,e := range (*parser).Events {
@@ -150,7 +151,7 @@ func worker( msgWorker *chan prod.MsgWorker, parser *parser.Parser ) {
 					fmt.Printf("\n\n**********IT MATCHED2 %s\n %+v\n\n", input.Message.Mess, *param )
 
 					extraEventIndex := postgres.ExtraEvent{
-								EventID: eventId,
+								EventID: e.EventId,
 								Location: input.Message.Location,
 								Pid: input.Message.Pid,
 								Tid: input.Message.Tid,
@@ -164,13 +165,13 @@ func worker( msgWorker *chan prod.MsgWorker, parser *parser.Parser ) {
 					if strings.Contains(e.LogLine,"%s") || strings.Contains(e.LogLine,"%d") {
 						params := e.GetParameters( input.Message.Mess )
 						if len(*params)>0 {
-							fmt.Println( "IT MATCHED2 ", scenarioId,stateId,eventId, input.Message.Mess," param ",*params )
+							fmt.Println( "IT MATCHED2 ", e.ScenarioId,e.StateId,e.EventId, input.Message.Mess," param ",*params )
 							for o,p := range *params {
-								eventIndex.Parameters=append(eventIndex.Parameters, postgres.Parameter{ Value:p, Offset:uint(o), } )
+								extraEventIndex.ExtraParameters=append(extraEventIndex.ExtraParameters, postgres.ExtraParameter{ Value:p, Offset:uint(o), } )
 							}
 						}
 					}
-					Results.AddLine( parser, &input.Message.Mess, bootId, scenarioId,  stateId, &extraEventIndex )
+					input.LifeCycles.AddLine( parser, &input.Message.Mess, input.Message.BootId, e.ScenarioId,  e.StateId, &extraEventIndex )
 				
 				}			
 				
@@ -191,6 +192,6 @@ func worker( msgWorker *chan prod.MsgWorker, parser *parser.Parser ) {
 		}
 
 	}
-
+	
 }
 
