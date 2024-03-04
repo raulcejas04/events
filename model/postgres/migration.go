@@ -17,6 +17,7 @@ func Setup() {
 		&State{},
 		&KnowledgeDef{},
 		&Scenario{},
+		&TypeState{},
 		&TypeScenario{},
 		&FailureCond{},
 		&TypeCondFail{},
@@ -33,6 +34,7 @@ func Setup() {
 		&State{},
 		&KnowledgeDef{},
 		&Scenario{},
+		&TypeState{},		
 		&TypeScenario{},
 		&FailureCond{},
 		&TypeCondFail{},
@@ -71,7 +73,7 @@ var KnowledgeDefs = []KnowledgeDef{KnowledgeDef{DefName: "Log Database",
 					Scenarios: []Scenario{
 						Scenario{
 							ScenarioName: "ApplicationRunning",
-							TypeScenarioID: 3, 
+							TypeScenarioID: 1, 
 							States: []State{
 								State{ PassCondID: 1,
 									TypeStateID: 1,
@@ -113,7 +115,7 @@ var KnowledgeDefs = []KnowledgeDef{KnowledgeDef{DefName: "Log Database",
 							},
 						Scenario{
 							ScenarioName: "DisplayPowerState",						
-							TypeScenarioID: 3, 
+							TypeScenarioID: 1, 
 							States: []State{
 								State{ PassCondID: 1, 
 									TypeStateID: 1, 

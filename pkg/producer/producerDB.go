@@ -76,22 +76,24 @@ func InitResults() *Results {
 }
 
 //add the scenario if not exist, all states and foreach state all event to process
-func (l *Results) AddLine( parser *parser.Parser, line *string, bootId uint, scenarioId uint,  stateId uint, newExtraEvent *postgres.ExtraEvent ) {
-	if _,ok:=(*l).Lc[bootId]; !ok {
-		(*l).Lc[bootId]=Result{}
-	}
-	scenarios:=(*l).Lc[bootId].ResultScenarios	
+func (l *Results) AddLine( parser *parser.Parser, line *string, bootId uint, scenarioId uint, typeScenarioId uint, stateId uint, newExtraEvent *postgres.ExtraEvent ) {
+
+	fmt.Println( "TypeScenariosNames ",scenarioId,(*l).TypeScenariosName[typeScenarioId] )
+
+	var add=true
+	if (*l).TypeScenariosName[typeScenarioId]!= "dynamic_state" {
+		add=false
+		// if it is exists in the Result
+		if _,ok:=(*l).Lc[bootId]; !ok {
+			(*l).Lc[bootId]=Result{}
+		}
+		scenarios:=(*l).Lc[bootId].ResultScenarios	
 	
-	var add=false
-	//var startEnd string
-	//was the line processed ?
-	for _,sce := range scenarios {
-		if sce.ScenarioID==scenarioId {
-			if sce.TypeScenarioName == "dynamic_state" {
-				//it should be added
-				add=true
-			} else {
-				add=true //if it is found add should be false
+
+		//var startEnd string
+		//was the line processed ?
+		for _,sce := range scenarios {
+			if sce.ScenarioID==scenarioId {
 				if len(sce.ResultStates)==0 {
 					//startEnd="T"
 					add=true
@@ -102,14 +104,23 @@ func (l *Results) AddLine( parser *parser.Parser, line *string, bootId uint, sce
 							for _,eve := range st.ResultEvents {
 								if (*newExtraEvent).ID == eve.EventID {
 									add=false
-									return
+									break
 								}
+							}
+							if !add {
+								break
 							}
 						}
 					}
+					if !add {
+						break
+					}
 				}
 			}
-		}	
+			if !add {
+				break
+			}
+		}
 	}
 	
 	if add {
@@ -134,6 +145,8 @@ func (l *Results) AddLine( parser *parser.Parser, line *string, bootId uint, sce
 		resScenario.Timestamp=(*newExtraEvent).Timestamp
 		resScenario.TypeScenarioName=(*l).TypeScenariosName[scenarioId]
 		resScenario.ResultStates=append( resScenario.ResultStates, resState  )
+		
+		fmt.Printf( "\nresScenario %+v\n", resScenario )
 
 		(*l).Lc[bootId].ResultScenarios[(*newExtraEvent).Timestamp.Unix()]=resScenario
 	}

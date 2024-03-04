@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 	"regexp"
-	"strconv"
+	//"strconv"
 	"argus-events/model/postgres"    
 )
 
@@ -17,6 +17,7 @@ type UsedParam struct {
 
 type Event struct{
 	ScenarioId uint
+	TypeScenarioId uint
 	StateId uint
 	EventId uint
 	StartEnd string
@@ -33,7 +34,7 @@ type Parser struct {
 	Events []Event
 }
 
-
+/*
 func UsedParams(line string) []UsedParam {
 	var res []UsedParam
 	var begin int
@@ -66,7 +67,7 @@ func UsedParams(line string) []UsedParam {
 		}
 	}
 	return res
-}
+}*/
 
 func NewParser( knowledgeDef uint ) *Parser {
 	parser := Parser{}
@@ -76,11 +77,13 @@ func NewParser( knowledgeDef uint ) *Parser {
 	dbEvents:=*(know.GetEvents())
 	var events []Event
 	for scenarioId,scen := range dbEvents {
+		scenarioRow:=postgres.Scenario{}
+		scenarioRow.GetScenario(scenarioId)
 		for stateId,state := range scen {
 			stateRow:=postgres.State{}
 			stateRow.GetState( stateId )
 			for eventId,e := range state {	
-				event:= Event{ScenarioId: scenarioId, StateId: stateId, EventId: eventId, LogLine:e, StartEnd: stateRow.StartEnd}
+				event:= Event{ScenarioId: scenarioId, TypeScenarioId: scenarioRow.TypeScenarioID ,StateId: stateId, EventId: eventId, LogLine:e, StartEnd: stateRow.StartEnd}
 				event.GetWords()
 				event.RegularExpression()
 				event.InitValueParams()

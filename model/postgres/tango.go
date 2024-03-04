@@ -99,7 +99,7 @@ func GetContents(bugreportId int, partitionId int, fileId uint, fileName string)
 	}
 	
 	log.Info( "bugreport ", bugreportId, " partition_id ", partitionId, " file_id ", fileId )
-	rows, err = DbSql.Query("SELECT pid,tid,line_number,tag,message,label_id,timestamp,location FROM contents WHERE bugreport_id=$1 and partition_id=$2 and file_id=$3", bugreportId, partitionId, fileId)
+	rows, err = DbSql.Query("SELECT pid,tid,line_number,tag,message,label_id,timestamp,location FROM contents WHERE bugreport_id=$1 and partition_id=$2 and file_id=$3 and message like 'Start proc%'", bugreportId, partitionId, fileId)
 	defer rows.Close()
 
 	if err != nil {

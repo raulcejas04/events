@@ -41,6 +41,11 @@ func ( s *State ) GetState( id uint ) {
 DbEvents.Find( s, id )
 }
 
+func ( s *Scenario ) GetScenario( id uint ) {
+DbEvents.Find( s, id )
+}
+
+
 func GetAllTypeScenario() map[uint]string {
 
 var TypeScenarios []TypeScenario

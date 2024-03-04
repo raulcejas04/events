@@ -105,7 +105,7 @@ func initialize() {
 func consumer( chConsumers *chan *prod.Msg, msgWorker *chan prod.MsgWorker ) {
 	for msg := range *chConsumers {
 		//fmt.Println("Consumer file_id: ", msg.FileId)
-		fmt.Printf( "\nlifecycles %+v\n",(*((*msg).LifeCycles)).Lc )
+		//fmt.Printf( "\nlifecycles %+v\n",(*((*msg).LifeCycles)).Lc )
 		if msg.FileId==0 {
 			//postgres.DbEvents.Create( *msg.ExtraEvent )
 			fmt.Println( " Save Events ", msg.BugreportId, msg.PartitionId )
@@ -144,11 +144,11 @@ func worker( msgWorker *chan prod.MsgWorker, parser *parser.Parser ) {
 					//e:=parse.Event{ LogLine: even }
 
 			if e.Approximate( input.Message.Mess ) {
-				fmt.Printf( "\n\n**********IT MATCHED %s\n\n", input.Message.Mess )
+				//fmt.Printf( "\n\n**********IT MATCHED %s\n\n", input.Message.Mess )
 				e.ReplValueParams()
 				match,param:= e.ItMatchParam( input.Message.Mess ) 
 				if match {
-					fmt.Printf("\n\n**********IT MATCHED2 %s\n %+v\n\n", input.Message.Mess, *param )
+					fmt.Printf("\n\n**********IT MATCHED2 scen %d  state %d event %d\n log line %s\n parse %s\n matchpara %+v\n\n",e.ScenarioId,e.StateId,e.EventId, input.Message.Mess, e.LogLine, *param )
 
 					extraEventIndex := postgres.ExtraEvent{
 								EventID: e.EventId,
@@ -165,13 +165,14 @@ func worker( msgWorker *chan prod.MsgWorker, parser *parser.Parser ) {
 					if strings.Contains(e.LogLine,"%s") || strings.Contains(e.LogLine,"%d") {
 						params := e.GetParameters( input.Message.Mess )
 						if len(*params)>0 {
-							fmt.Println( "IT MATCHED2 ", e.ScenarioId,e.StateId,e.EventId, input.Message.Mess," param ",*params )
+							//fmt.Printf( "IT MATCHED2 %d %d %d\nlog line %s\nparse %sparam %+v\n ", e.ScenarioId,e.StateId,e.EventId, input.Message.Mess,e.LogLine,*params )
+							fmt.Printf( "param %+v\n\n",*params)
 							for o,p := range *params {
 								extraEventIndex.ExtraParameters=append(extraEventIndex.ExtraParameters, postgres.ExtraParameter{ Value:p, Offset:uint(o), } )
 							}
 						}
 					}
-					input.LifeCycles.AddLine( parser, &input.Message.Mess, input.Message.BootId, e.ScenarioId,  e.StateId, &extraEventIndex )
+					input.LifeCycles.AddLine( parser, &input.Message.Mess, input.Message.BootId, e.ScenarioId, e.TypeScenarioId , e.StateId, &extraEventIndex )
 				
 				}			
 				
