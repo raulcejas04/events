@@ -54,7 +54,7 @@ func Setup() {
 
 func InitLoadKnow() {
 
-var TypeScenarios = []TypeScenario{{TypeScenarioName: "fatal_error"},{TypeScenarioName: "single_shot"},{TypeScenarioName: "dynamic_state"},}
+var TypeScenarios = []TypeScenario{{TypeScenarioName: "dynamic_state"},{TypeScenarioName: "fatal_error"},{TypeScenarioName: "single_shot"},}
 DbEvents.Create(&TypeScenarios)	
 
 var TypeCondFail = []TypeCondFail{{ConditionName: "error"},}

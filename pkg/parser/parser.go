@@ -79,6 +79,7 @@ func NewParser( knowledgeDef uint ) *Parser {
 	for scenarioId,scen := range dbEvents {
 		scenarioRow:=postgres.Scenario{}
 		scenarioRow.GetScenario(scenarioId)
+		fmt.Printf( " scenario %d %d\n %+v\n", scenarioId, scenarioRow.TypeScenarioID, scenarioRow )
 		for stateId,state := range scen {
 			stateRow:=postgres.State{}
 			stateRow.GetState( stateId )
@@ -131,11 +132,16 @@ func (event *Event ) Approximate( line string ) bool {
 
 func ( event *Event ) ItMatchParam( input string ) (bool,*[]string) {
 	pattern:= regexp.MustCompile( event.LlRegex )
+	
+	fmt.Println("ItMatch 1 ", event.LlRegex, input )
 	if pattern.MatchString(input) {
+		fmt.Println("ItMatch 2 ", input )
 		if strings.Contains(event.LogLine, "%s") || strings.Contains(event.LogLine, "%d") {
 
+			fmt.Println("ItMatch 3 ", event.LogLine )
 			parameters := pattern.FindStringSubmatch( input )
 			if len(parameters)>0 {
+				fmt.Println("ItMatch 4 ", parameters )
 				return true,&parameters
 			}
 		}
@@ -153,18 +159,15 @@ func (event *Event ) InitValueParams( )  {
 	return
 }
 
-//in the matching
-func (event *Event ) ReplValueParams( )  {
-	for _,rep := range event.Replacement {
-		fmt.Printf( "rep %+v\n",rep )
-	}
-	return
-}
 
 
 func ( event *Event ) RegularExpression() {
-	event.LlRegex=strings.Replace( event.LogLine, "%s", "(.+)", -1)
+	event.LlRegex=strings.Replace( event.LogLine, `/`, `\/`, -1)
+	event.LlRegex=strings.Replace( event.LlRegex, `[`, `\[`, -1)
+	event.LlRegex=strings.Replace( event.LlRegex, `]`, `\]`, -1)	
+	event.LlRegex=strings.Replace( event.LlRegex, "%s", "(.+)", -1)
 	event.LlRegex=strings.Replace( event.LlRegex, "%d", "(\\d+)", -1)
+	event.LlRegex=fmt.Sprintf("^%s$", event.LlRegex )
 	return
 }
 
@@ -184,7 +187,7 @@ func ( event *Event ) GetParameters( input string ) *[]string {
 		pattern:= regexp.MustCompile( event.LlRegex )
 		parameters := pattern.FindStringSubmatch( input )
 		if len(parameters)>0 {
-			//fmt.Println( "PARAMETERS ", parameters )
+			fmt.Println( "PARAMETERS ", input, event.LlRegex, parameters )
 			return &parameters
 		}
 	} else {

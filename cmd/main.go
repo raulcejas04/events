@@ -132,7 +132,7 @@ func worker( msgWorker *chan prod.MsgWorker, parser *parser.Parser ) {
 		//fmt.Printf("\nevent %+v\n",e)
 
 		//TODO get lifecycles context
-		/*lc:=input.LifeCycles[input.Message.BootId]
+		/*
 		evp:=lc.GetEventsToProcess()*/
 		//fmt.Println( " Message ",input.Message.Mess )
 
@@ -144,11 +144,12 @@ func worker( msgWorker *chan prod.MsgWorker, parser *parser.Parser ) {
 					//e:=parse.Event{ LogLine: even }
 
 			if e.Approximate( input.Message.Mess ) {
-				//fmt.Printf( "\n\n**********IT MATCHED %s\n\n", input.Message.Mess )
-				e.ReplValueParams()
+
+				if e.StartEnd=="E" {
+					input.LifeCycles.ReplValueParams(input.Message.BootId, e.ScenarioId, e.StateId, e.Replacement)
+				}
 				match,param:= e.ItMatchParam( input.Message.Mess ) 
 				if match {
-					fmt.Printf("\n\n**********IT MATCHED2 scen %d  state %d event %d\n log line %s\n parse %s\n matchpara %+v\n\n",e.ScenarioId,e.StateId,e.EventId, input.Message.Mess, e.LogLine, *param )
 
 					extraEventIndex := postgres.ExtraEvent{
 								EventID: e.EventId,
@@ -162,21 +163,34 @@ func worker( msgWorker *chan prod.MsgWorker, parser *parser.Parser ) {
 								Message: input.Message.Mess,
 								ExtraParameters: []postgres.ExtraParameter{},
 								}
-					if strings.Contains(e.LogLine,"%s") || strings.Contains(e.LogLine,"%d") {
-						params := e.GetParameters( input.Message.Mess )
-						if len(*params)>0 {
-							//fmt.Printf( "IT MATCHED2 %d %d %d\nlog line %s\nparse %sparam %+v\n ", e.ScenarioId,e.StateId,e.EventId, input.Message.Mess,e.LogLine,*params )
-							fmt.Printf( "param %+v\n\n",*params)
-							for o,p := range *params {
-								extraEventIndex.ExtraParameters=append(extraEventIndex.ExtraParameters, postgres.ExtraParameter{ Value:p, Offset:uint(o), } )
+
+					fmt.Printf( "\n\n**********IT MATCHED %s startend %s eventid %d\n\n", input.Message.Mess, e.StartEnd, e.EventId )
+					if e.StartEnd=="E" {
+						//stateIndex,stateData:=
+						input.LifeCycles.AddLineToTrue(input.Message.BootId, e.ScenarioId, e.StateId, e.StartEnd, input.Message.Timestamp, &extraEventIndex )
+						//fmt.Println( " index ",stateIndex," candidate state ", stateData, " scenarios ",  (*(input.LifeCycles)).Lc[input.Message.BootId] )
+						//fmt.Println( " index ",stateIndex," candidate state ", stateData  )
+					} else {
+
+						var params *[]string
+						if strings.Contains(e.LogLine,"%s") || strings.Contains(e.LogLine,"%d") {
+							params = e.GetParameters( input.Message.Mess )
+							if len(*params)>0 {
+								//fmt.Printf( "IT MATCHED2 %d %d %d\nlog line %s\nparse %sparam %+v\n ", e.ScenarioId,e.StateId,e.EventId, input.Message.Mess,e.LogLine,*params )
+								fmt.Printf( "param %+v\n\n",*params)
+								for o,p := range *params {
+									extraEventIndex.ExtraParameters=append(extraEventIndex.ExtraParameters, postgres.ExtraParameter{ Value:p, Offset:uint(o), } )
+								}
 							}
 						}
-					}
-					input.LifeCycles.AddLine( parser, &input.Message.Mess, input.Message.BootId, e.ScenarioId, e.TypeScenarioId , e.StateId, &extraEventIndex )
+					
+						fmt.Printf("\n\n**********IT MATCHED2 scen %d  state %d event %d\n log line %s\n parse %s\n matchpara %+v words %+v\n regex %s\n params %+v\n\n",e.ScenarioId,e.StateId,e.EventId, input.Message.Mess, e.LogLine, *param, e.Words, e.LlRegex, *params )
+
+						input.LifeCycles.AddLine( parser, &input.Message.Mess, input.Message.BootId, e.ScenarioId, e.TypeScenarioId , e.StateId, &extraEventIndex )
 				
-				}			
+					}			
 				
-				
+				}				
 				/*
 
 
