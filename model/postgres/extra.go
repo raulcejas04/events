@@ -20,7 +20,7 @@ func NewExtraKnow( bugreportID int, partitionID int, knowledgeDefID uint, bootId
 }
 
 func ( ek *ExtraKnow ) AddExtraScenario( scenario ExtraScenario ) {
-	scenario.ExtraKnowID=ek.ID
+	//scenario.ExtraKnowID=ek.ID
 	ek.ExtraScenarios=append( ek.ExtraScenarios, scenario )
 } 
 
@@ -30,7 +30,7 @@ func NewExtraScenario(  scenarioID uint ) *ExtraScenario {
 }
 
 func ( ec *ExtraScenario ) AddExtraState( state ExtraState ) {
-	state.ExtraScenarioID=ec.ID
+	//state.ExtraScenarioID=ec.ID
 	ec.ExtraStates=append( ec.ExtraStates, state )
 }
 

@@ -9,7 +9,10 @@ import (
 	"argus-events/model/postgres"
 	"strings"
 	"github.com/spf13/viper"
-	"argus-events/pkg/parser"		
+	"argus-events/pkg/parser"
+	"os"	
+	"encoding/json"
+	"argus-events/pkg/debug"
 )
 
 
@@ -38,7 +41,7 @@ func channelHandlerPost( p *prod.ProducerBR ) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 	       vars := mux.Vars(r)
                key := vars["id"]
-               log.Infof("Save bugreport ID %s ", key )
+               log.Infof("Send bugreport ID %s ", key )
                message:= prod.ChanIn{ Id: key, Task: "P" }
 		(*p).In <- message
 	}
@@ -48,7 +51,7 @@ func channelHandlerDel( p *prod.ProducerBR ) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 	       vars := mux.Vars(r)
                key := vars["id"]
-               log.Infof("Delete bugreport ID %s ", key )
+               log.Infof("Reprocess bugreport ID %s ", key )
                message:= prod.ChanIn{ Id: key, Task: "D" }
 		(*p).In <- message
 	}
@@ -62,11 +65,13 @@ func main () {
 	postgres.NewConnection()
 	postgres.NewConnectionSql()
 
-	var msgParser = make(chan prod.MsgWorker )
-	
+	var msgWorker = make(chan prod.MsgWorker )
+
+	f:=debug.NewOpenedFile( "./debug.txt" )	
 	producer:= &prod.ProducerBR{}
-	producer.InitProducerDB()
-	parser:=parser.NewParser( 1 )
+	producer.InitProducerDB(f)
+	var knowledgeDefId uint =1
+	parser:=parser.NewParser( knowledgeDefId )
 	//p.InitProducerDB()
 	for _,e := range (*parser).Events {
 		fmt.Printf("%+v\n\n",e)
@@ -78,13 +83,15 @@ func main () {
 
 	go producer.ProducerBugRep()
 	
-	for i:=1;i<4;i++ {
-		go consumer( &(producer.Consumer), &msgParser )
+	for i:=1;i<=1;i++ {
+		go consumer( &(producer.Consumer), &msgWorker, knowledgeDefId )
 	}
-	for i:=1;i<10;i++ {
-		go worker( &msgParser, producer.Parser )
+	
+	for i:=1;i<=1;i++ {
+		go worker( &msgWorker, producer.Parser, f)
 	}
 	<-producer.Done
+	debug.FileClose(f)
 	
 }
 
@@ -102,53 +109,56 @@ func initialize() {
 
 
 
-func consumer( chConsumers *chan *prod.Msg, msgWorker *chan prod.MsgWorker ) {
+func consumer( chConsumers *chan *prod.Msg, msgWorker *chan prod.MsgWorker, knowledgeDefId uint ) {
 	for msg := range *chConsumers {
 		//fmt.Println("Consumer file_id: ", msg.FileId)
 		//fmt.Printf( "\nlifecycles %+v\n",(*((*msg).LifeCycles)).Lc )
-		if msg.FileId==0 {
+		if (*msg).FileId==0 {
 			//postgres.DbEvents.Create( *msg.ExtraEvent )
 			fmt.Println( " Save Events ", msg.BugreportId, msg.PartitionId )
-			fmt.Printf( "%+v\n",(*((*msg).LifeCycles)).Lc)		
+			fmt.Printf( "lifecycle %+v\n",(*((*msg).LifeCycles)).Lc)
+			((*msg).LifeCycles).Save( msg.BugreportId, msg.PartitionId, knowledgeDefId )
 		} else {
 			messages:=postgres.GetContents(msg.BugreportId,msg.PartitionId,msg.FileId,msg.FileName )
 			for _,m := range messages {
-				//fmt.Println( "tag ",m.Tag)
-				//if strings.Contains(m.Tag,"ActivityManager" ) {
-					
-					msgPar:= prod.MsgWorker{ Message: m, ExtraEvent: msg.ExtraEvent, LifeCycles: msg.LifeCycles }
-					*msgWorker <- msgPar
-				//}
+				//fmt.Printf("mess %+v\n",m )
+				msgPar:= prod.MsgWorker{ Message: m, ExtraEvent: msg.ExtraEvent, LifeCycles: msg.LifeCycles }
+				*msgWorker <- msgPar
 			}
 		}	
 	}
 }
 
-func worker( msgWorker *chan prod.MsgWorker, parser *parser.Parser ) {
+func worker( msgWorker *chan prod.MsgWorker, parser *parser.Parser, f *os.File ) {
 
 	for input :=range *msgWorker {
 		//fmt.Printf( "worker mess %+v\n",input.Message.Mess )
 		for _,e := range (*parser).Events {
-		//fmt.Printf("\nevent %+v\n",e)
 
-		//TODO get lifecycles context
-		/*
-		evp:=lc.GetEventsToProcess()*/
-		//fmt.Println( " Message ",input.Message.Mess )
-
-
+			//TODO get lifecycles context
 			//scenarioId:=e.ScenarioId
 			//stateId:=e.StateId
 			//eventId:=e.EventId
 			
-					//e:=parse.Event{ LogLine: even }
-
+			keyDebug:=fmt.Sprintf( "%s-%d",input.Message.FileName,input.Message.LineNumber)
 			if e.Approximate( input.Message.Mess ) {
+				patternLine:=e.LlRegex
 
+				debug.FileWrite( f,"****************************************************************************************************\n")
+				debug.FileWrite( f,fmt.Sprintf( "%s Approx line: %s\n", keyDebug, input.Message.Mess ))
+				debug.FileWrite( f,fmt.Sprintf( "%s Approx pattern: %s regex: %s\nreplac: %+v\nstartEnd %s\n patterLine %s\n", keyDebug,e.LogLine, e.LlRegex, e.Replacement, e.StartEnd,patternLine))
 				if e.StartEnd=="E" {
-					input.LifeCycles.ReplValueParams(input.Message.BootId, e.ScenarioId, e.StateId, e.Replacement)
+					if ! input.LifeCycles.ReplValueParams(&patternLine, input.Message.BootId, e.ScenarioId, e.StateId, e.Replacement) {
+						debug.FileWrite( f,fmt.Sprintf(" params NOT found %+v\n", e.Replacement))			
+						continue
+					}
 				}
-				match,param:= e.ItMatchParam( input.Message.Mess ) 
+
+
+				debug.FileWrite( f, fmt.Sprintf("%s Candidate: %s\ncalculated pattern %s\n\n",keyDebug,input.Message.Mess, patternLine ))
+
+				
+				match,param:= e.ItMatchParam( &patternLine, input.Message.Mess ) 
 				if match {
 
 					extraEventIndex := postgres.ExtraEvent{
@@ -166,6 +176,8 @@ func worker( msgWorker *chan prod.MsgWorker, parser *parser.Parser ) {
 
 					fmt.Printf( "\n\n**********IT MATCHED %s startend %s eventid %d\n\n", input.Message.Mess, e.StartEnd, e.EventId )
 					if e.StartEnd=="E" {
+					
+						debug.FileWrite(f, fmt.Sprintf("%s Param: %s\n", keyDebug, param ))
 						//stateIndex,stateData:=
 						input.LifeCycles.AddLineToTrue(input.Message.BootId, e.ScenarioId, e.StateId, e.StartEnd, input.Message.Timestamp, &extraEventIndex )
 						//fmt.Println( " index ",stateIndex," candidate state ", stateData, " scenarios ",  (*(input.LifeCycles)).Lc[input.Message.BootId] )
@@ -179,7 +191,9 @@ func worker( msgWorker *chan prod.MsgWorker, parser *parser.Parser ) {
 								//fmt.Printf( "IT MATCHED2 %d %d %d\nlog line %s\nparse %sparam %+v\n ", e.ScenarioId,e.StateId,e.EventId, input.Message.Mess,e.LogLine,*params )
 								fmt.Printf( "param %+v\n\n",*params)
 								for o,p := range *params {
-									extraEventIndex.ExtraParameters=append(extraEventIndex.ExtraParameters, postgres.ExtraParameter{ Value:p, Offset:uint(o), } )
+									if o > 0 {
+										extraEventIndex.ExtraParameters=append(extraEventIndex.ExtraParameters, postgres.ExtraParameter{ Value:p, Offset:uint(o), } )
+									}
 								}
 							}
 						}
@@ -188,25 +202,28 @@ func worker( msgWorker *chan prod.MsgWorker, parser *parser.Parser ) {
 
 						input.LifeCycles.AddLine( parser, &input.Message.Mess, input.Message.BootId, e.ScenarioId, e.TypeScenarioId , e.StateId, &extraEventIndex )
 				
-					}			
-				
-				}				
-				/*
-
-
-				*(input.EventIndex) = append( *(input.EventIndex),  eventIndex )
-
-				length:=len( *(input.EventIndex) )
-				if length > 0 {
-
-					for _,p := range  eventIndex.Parameters {
-						(*input.EventIndex)[length-1].Parameters = append((*input.EventIndex)[length-1].Parameters,  p )
 					}
-				}*/
+					
+					for _,scen := range (*input.LifeCycles).Lc[input.Message.BootId].ResultScenarios {
+						if scen.ScenarioID == e.ScenarioId {
+							u, err := json.MarshalIndent(scen,"", " " )
+							if err != nil {
+								panic(err)
+							}		
+					
+							fmt.Printf( "json %+v\n\n", string(u) )
+						
+							debug.FileWrite( f, fmt.Sprintf( "%s %s",keyDebug, string(u) ))
+							debug.FileWrite( f, "\n\n" )
+						}
+					}
+
+				}				
 			}
 		}
 
 	}
 	
 }
+
 

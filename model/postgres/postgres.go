@@ -83,7 +83,7 @@ type State struct {
 	PassCond	PassCond
 	TypeStateID	uint
 	TypeState	TypeState 	
-	Message		string
+	Message	string
 	StartEnd	string		//true, false or whatever in the future others	
 	Events		[]Event	`gorm:"foreignkey:StateID;references:ID;constraint:OnDelete:CASCADE"`
 }

@@ -130,8 +130,9 @@ func (event *Event ) Approximate( line string ) bool {
 	return res
 }
 
-func ( event *Event ) ItMatchParam( input string ) (bool,*[]string) {
-	pattern:= regexp.MustCompile( event.LlRegex )
+func ( event *Event ) ItMatchParam( patterLine *string, input string ) (bool,*[]string) {
+	//pattern:= regexp.MustCompile( event.LlRegex )
+	pattern:= regexp.MustCompile( *patterLine )
 	
 	fmt.Println("ItMatch 1 ", event.LlRegex, input )
 	if pattern.MatchString(input) {
