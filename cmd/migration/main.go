@@ -1,7 +1,7 @@
 package main
 
 import (
-	postgres "argus-events/model/postgres"
+	postgres "argus-events/model/psql"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"	
 	"os"

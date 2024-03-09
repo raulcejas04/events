@@ -6,7 +6,7 @@ import (
      	prod "argus-events/pkg/producer"
 	"github.com/gorilla/mux"
 	"net/http"
-	"argus-events/model/postgres"
+	postgres "argus-events/model/psql"
 	"strings"
 	"github.com/spf13/viper"
 	"argus-events/pkg/parser"
@@ -200,7 +200,7 @@ func worker( msgWorker *chan prod.MsgWorker, parser *parser.Parser, f *os.File )
 					
 						fmt.Printf("\n\n**********IT MATCHED2 scen %d  state %d event %d\n log line %s\n parse %s\n matchpara %+v words %+v\n regex %s\n params %+v\n\n",e.ScenarioId,e.StateId,e.EventId, input.Message.Mess, e.LogLine, *param, e.Words, e.LlRegex, *params )
 
-						input.LifeCycles.AddLine( parser, &input.Message.Mess, input.Message.BootId, e.ScenarioId, e.TypeScenarioId , e.StateId, &extraEventIndex )
+						input.LifeCycles.AddLine( parser, &input.Message.Mess, input.Message.BootId, e.ScenarioId, e.TypeScenarioId , e.StateId, &extraEventIndex, input.Message.BootName )
 				
 					}
 					

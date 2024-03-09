@@ -1,6 +1,6 @@
 package producer
 import(
-	"argus-events/model/postgres"
+	postgres "argus-events/model/psql"
 	"argus-events/pkg/parser"
 	"strconv"
 	"fmt"
@@ -117,6 +117,8 @@ for ksc,resultScenario := range result.ResultScenarios {
 										TimestampUnix: (*newExtraEvent).Timestamp.Unix(),
 										ExtraEvent: *newExtraEvent,
 										}
+
+							newResultEvent.ExtraEvent.ExtraParameters=append( newResultEvent.ExtraEvent.ExtraParameters, (*newExtraEvent).ExtraParameters... )
 							
 							resState := ResultState{ StateID: stateId, StartEnd: (*l).States[scenarioId][stateId].StartEnd }
 							resState.ResultEvents=append( resState.ResultEvents, newResultEvent ) 
@@ -164,7 +166,7 @@ func InitResults( debug *os.File ) *Results {
 }
 
 //add the scenario if not exist, all states and foreach state all event to process
-func (l *Results) AddLine( parser *parser.Parser, line *string, bootId uint, scenarioId uint, typeScenarioId uint, stateId uint, newExtraEvent *postgres.ExtraEvent ) {
+func (l *Results) AddLine( parser *parser.Parser, line *string, bootId uint, scenarioId uint, typeScenarioId uint, stateId uint, newExtraEvent *postgres.ExtraEvent, bootName string ) {
 
 	fmt.Println( "TypeScenariosNames ",typeScenarioId,(*l).TypeScenariosName[typeScenarioId] )
 	var add=true
@@ -242,7 +244,7 @@ func (l *Results) AddLine( parser *parser.Parser, line *string, bootId uint, sce
 		
 		result,ok:=(*l).Lc[bootId]; 
 		if !ok {
-			result = Result{}
+			result = Result{ BootName: bootName }
 		}
 		result.ResultScenarios=append( result.ResultScenarios, resScenario )
 		(*l).Lc[bootId]=result
@@ -322,10 +324,8 @@ for bootId,lc :=range (*l).Lc {
 		}
 		extraKnow.AddExtraScenario( extraScenario )
 	}
+	postgres.DbEvents.Create( extraKnow )
 }
-
-postgres.DbEvents.Create( extraKnow )
-
 }
 
 func (p *ProducerBR) InitProducerDB( debug *os.File)  {

@@ -5,7 +5,7 @@ import (
 	"strings"
 	"regexp"
 	//"strconv"
-	"argus-events/model/postgres"    
+	postgres "argus-events/model/psql"
 )
 
 type UsedParam struct {

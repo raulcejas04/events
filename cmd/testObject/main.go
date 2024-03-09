@@ -1,7 +1,7 @@
 package main
 import(
 	"fmt"
-	"argus-events/model/postgres"
+	postgres "argus-events/model/psql"
 	"github.com/spf13/viper"
 	log "github.com/sirupsen/logrus"	
     	"encoding/json"	
@@ -12,7 +12,7 @@ func main() {
 	postgres.NewConnection()
 	l:=postgres.GetLearning( 2711, 1, "boot_1" )
 
-        u, err := json.Marshal(*l)
+        u, err := json.MarshalIndent(l,"", "\t")
         if err != nil {
             panic(err)
         }
