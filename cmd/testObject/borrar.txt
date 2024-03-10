@@ -1,0 +1,4562 @@
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:16
+[3.600ms] [rows:1] SELECT * FROM "knowledge_defs" WHERE "knowledge_defs"."id" = 1 AND "knowledge_defs"."deleted_at" IS NULL
+
+2024/03/09 18:06:55 
+[1.122ms] [rows:144] SELECT * FROM "extra_parameters" WHERE "extra_parameters"."extra_event_id" IN (55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126)
+
+2024/03/09 18:06:55 
+[3.222ms] [rows:72] SELECT * FROM "extra_events" WHERE "extra_events"."extra_state_id" IN (55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125,126)
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/extra.go:10
+[4.720ms] [rows:72] SELECT * FROM "extra_states" WHERE "extra_states"."extra_scenario_id" IN (29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64)
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/extra.go:10
+[5.689ms] [rows:36] SELECT * FROM "extra_scenarios" WHERE "extra_scenarios"."extra_know_id" = 4
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/extra.go:10
+[0.248ms] [rows:1] SELECT * FROM "knowledge_defs" WHERE "knowledge_defs"."id" = 1 AND "knowledge_defs"."deleted_at" IS NULL
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/extra.go:10
+[7.180ms] [rows:1] SELECT * FROM "extra_knows" WHERE bugreport_id=2711 and knowledge_def_id=1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.652ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.683ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.560ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.157ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.184ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.276ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.325ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.235ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.239ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.164ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.143ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.142ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.142ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.165ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.132ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.176ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.164ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.158ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.179ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.129ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.122ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.122ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.144ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.117ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.119ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.126ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.139ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.120ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.122ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.116ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.120ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.119ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.115ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.133ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.120ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.113ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.121ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.117ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.118ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.115ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.118ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.114ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.119ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.119ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.113ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.116ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.126ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.115ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.118ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.119ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.121ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.132ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.129ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.128ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.152ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.127ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.118ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.138ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.130ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.119ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.125ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.165ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.119ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.117ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.124ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.123ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.124ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.123ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.119ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.120ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.114ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.109ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.106ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.168ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.121ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.119ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.127ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.122ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.128ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.112ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.124ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.110ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.127ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.106ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.121ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.113ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.120ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.115ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.126ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.107ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.146ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.110ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.115ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.115ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.166ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.185ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.172ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.163ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.159ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.128ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.164ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.144ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.138ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.157ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.137ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.120ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.157ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.117ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.126ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.146ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.104ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.115ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.136ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.111ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.112ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.111ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.108ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.115ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.111ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.113ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[1.161ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.194ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.128ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.155ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.127ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.126ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.114ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.108ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.104ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.153ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.113ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.115ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.121ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.103ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.299ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.127ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.124ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.683ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.134ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.174ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.116ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.133ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.114ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.121ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.115ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.162ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.112ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.112ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.117ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.106ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.111ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.127ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.106ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.107ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.110ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.104ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.174ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.124ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.107ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.118ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.117ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.109ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.117ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.110ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.112ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.121ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.116ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.104ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.132ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.120ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.112ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.109ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.115ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.188ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.114ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.110ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.105ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.107ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.109ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.118ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.110ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.109ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.105ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.107ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.108ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.104ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.107ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.107ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.104ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.107ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.108ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.104ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.108ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.110ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.104ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.107ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.108ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.105ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.108ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.159ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.115ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.111ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.108ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.106ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.110ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.117ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.109ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.108ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.114ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.105ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.111ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.113ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.118ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:59
+[0.106ms] [rows:1] SELECT * FROM "events" WHERE "events"."id" = 3
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:45
+[0.107ms] [rows:1] SELECT * FROM "states" WHERE "states"."id" = 2
+
+2024/03/09 18:06:55 /pendrive/profesional/magicleap/argus-events/model/psql/know.go:66
+[0.106ms] [rows:1] SELECT * FROM "pass_conds" WHERE "pass_conds"."id" = 1
+{
+	"DefName": "Log Database",
+	"LvScenarios": [
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 55,
+							"ExtraStateID": 55,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23263,
+							"FileName": "boot_1/logcat.173",
+							"LineNumber": 4626,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T10:33:46.253594-03:00",
+							"LogMessage": "Start proc 4666:com.android.settings/1000 for activity {com.android.settings/com.android.settings.FallbackHome}",
+							"ExtraParameters": [
+								{
+									"ID": 1,
+									"ExtraEventID": 55,
+									"Offset": 1,
+									"Value": "4666"
+								},
+								{
+									"ID": 2,
+									"ExtraEventID": 55,
+									"Offset": 2,
+									"Value": "com.android.settings/1000"
+								},
+								{
+									"ID": 3,
+									"ExtraEventID": 55,
+									"Offset": 3,
+									"Value": "com.android.settings"
+								},
+								{
+									"ID": 4,
+									"ExtraEventID": 55,
+									"Offset": 4,
+									"Value": "com.android.settings.FallbackHome"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "4666"
+							},
+							{
+								"Value": "com.android.settings/1000"
+							},
+							{
+								"Value": "com.android.settings"
+							},
+							{
+								"Value": "com.android.settings.FallbackHome"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 56,
+							"ExtraStateID": 56,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23264,
+							"FileName": "boot_1/logcat.172",
+							"LineNumber": 7408,
+							"Pid": 3763,
+							"Tid": 4256,
+							"Timestamp": "2022-12-05T10:33:50.534152-03:00",
+							"LogMessage": "[0,134636412,com.android.settings/.FallbackHome,(none)]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 57,
+							"ExtraStateID": 57,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23266,
+							"FileName": "boot_1/logcat.170",
+							"LineNumber": 2550,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T10:35:07.928907-03:00",
+							"LogMessage": "Start proc 5816:com.magicleap.homemenu/u0a82 for activity {com.magicleap.homemenu/com.magicleap.homemenu.HomeMenuActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 5,
+									"ExtraEventID": 57,
+									"Offset": 1,
+									"Value": "5816"
+								},
+								{
+									"ID": 6,
+									"ExtraEventID": 57,
+									"Offset": 2,
+									"Value": "com.magicleap.homemenu/u0a82"
+								},
+								{
+									"ID": 7,
+									"ExtraEventID": 57,
+									"Offset": 3,
+									"Value": "com.magicleap.homemenu"
+								},
+								{
+									"ID": 8,
+									"ExtraEventID": 57,
+									"Offset": 4,
+									"Value": "com.magicleap.homemenu.HomeMenuActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "5816"
+							},
+							{
+								"Value": "com.magicleap.homemenu/u0a82"
+							},
+							{
+								"Value": "com.magicleap.homemenu"
+							},
+							{
+								"Value": "com.magicleap.homemenu.HomeMenuActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 58,
+							"ExtraStateID": 58,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23266,
+							"FileName": "boot_1/logcat.170",
+							"LineNumber": 2792,
+							"Pid": 3763,
+							"Tid": 3784,
+							"Timestamp": "2022-12-05T10:35:08.206048-03:00",
+							"LogMessage": "[0,45445041,com.magicleap.homemenu/.HomeMenuActivity,(none)]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 59,
+							"ExtraStateID": 59,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23267,
+							"FileName": "boot_1/logcat.169",
+							"LineNumber": 4826,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T10:36:20.969775-03:00",
+							"LogMessage": "Start proc 6754:com.magicleap.unity.examples/u0a104 for activity {com.magicleap.unity.examples/com.unity3d.player.UnityPlayerActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 9,
+									"ExtraEventID": 59,
+									"Offset": 1,
+									"Value": "6754"
+								},
+								{
+									"ID": 10,
+									"ExtraEventID": 59,
+									"Offset": 2,
+									"Value": "com.magicleap.unity.examples/u0a104"
+								},
+								{
+									"ID": 11,
+									"ExtraEventID": 59,
+									"Offset": 3,
+									"Value": "com.magicleap.unity.examples"
+								},
+								{
+									"ID": 12,
+									"ExtraEventID": 59,
+									"Offset": 4,
+									"Value": "com.unity3d.player.UnityPlayerActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "6754"
+							},
+							{
+								"Value": "com.magicleap.unity.examples/u0a104"
+							},
+							{
+								"Value": "com.magicleap.unity.examples"
+							},
+							{
+								"Value": "com.unity3d.player.UnityPlayerActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 60,
+							"ExtraStateID": 60,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23267,
+							"FileName": "boot_1/logcat.169",
+							"LineNumber": 4876,
+							"Pid": 3763,
+							"Tid": 3813,
+							"Timestamp": "2022-12-05T10:36:21.058211-03:00",
+							"LogMessage": "[0,207804718,com.magicleap.unity.examples/com.unity3d.player.UnityPlayerActivity,160]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 61,
+							"ExtraStateID": 61,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23272,
+							"FileName": "boot_1/logcat.164",
+							"LineNumber": 2268,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T10:42:22.258005-03:00",
+							"LogMessage": "Start proc 8451:com.magicleap.unity.examples.meshing/u0a105 for activity {com.magicleap.unity.examples.meshing/com.unity3d.player.UnityPlayerActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 13,
+									"ExtraEventID": 61,
+									"Offset": 1,
+									"Value": "8451"
+								},
+								{
+									"ID": 14,
+									"ExtraEventID": 61,
+									"Offset": 2,
+									"Value": "com.magicleap.unity.examples.meshing/u0a105"
+								},
+								{
+									"ID": 15,
+									"ExtraEventID": 61,
+									"Offset": 3,
+									"Value": "com.magicleap.unity.examples.meshing"
+								},
+								{
+									"ID": 16,
+									"ExtraEventID": 61,
+									"Offset": 4,
+									"Value": "com.unity3d.player.UnityPlayerActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "8451"
+							},
+							{
+								"Value": "com.magicleap.unity.examples.meshing/u0a105"
+							},
+							{
+								"Value": "com.magicleap.unity.examples.meshing"
+							},
+							{
+								"Value": "com.unity3d.player.UnityPlayerActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 62,
+							"ExtraStateID": 62,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23272,
+							"FileName": "boot_1/logcat.164",
+							"LineNumber": 2511,
+							"Pid": 3763,
+							"Tid": 7003,
+							"Timestamp": "2022-12-05T10:42:23.521625-03:00",
+							"LogMessage": "[0,139167167,com.magicleap.unity.examples.meshing/com.unity3d.player.UnityPlayerActivity,userLeaving=true]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 63,
+							"ExtraStateID": 63,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23273,
+							"FileName": "boot_1/logcat.163",
+							"LineNumber": 2331,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T10:42:39.834678-03:00",
+							"LogMessage": "Start proc 8636:com.magicleap.homemenu/u0a82 for activity {com.magicleap.homemenu/com.magicleap.homemenu.HomeMenuActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 17,
+									"ExtraEventID": 63,
+									"Offset": 1,
+									"Value": "8636"
+								},
+								{
+									"ID": 18,
+									"ExtraEventID": 63,
+									"Offset": 2,
+									"Value": "com.magicleap.homemenu/u0a82"
+								},
+								{
+									"ID": 19,
+									"ExtraEventID": 63,
+									"Offset": 3,
+									"Value": "com.magicleap.homemenu"
+								},
+								{
+									"ID": 20,
+									"ExtraEventID": 63,
+									"Offset": 4,
+									"Value": "com.magicleap.homemenu.HomeMenuActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "8636"
+							},
+							{
+								"Value": "com.magicleap.homemenu/u0a82"
+							},
+							{
+								"Value": "com.magicleap.homemenu"
+							},
+							{
+								"Value": "com.magicleap.homemenu.HomeMenuActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 64,
+							"ExtraStateID": 64,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23273,
+							"FileName": "boot_1/logcat.163",
+							"LineNumber": 4263,
+							"Pid": 3763,
+							"Tid": 4273,
+							"Timestamp": "2022-12-05T10:42:55.429584-03:00",
+							"LogMessage": "[0,45445041,com.magicleap.homemenu/.HomeMenuActivity,userLeaving=true]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 65,
+							"ExtraStateID": 65,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23273,
+							"FileName": "boot_1/logcat.163",
+							"LineNumber": 4286,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T10:42:55.48174-03:00",
+							"LogMessage": "Start proc 8889:com.magicleap.unity.examples.meshing/u0a105 for activity {com.magicleap.unity.examples.meshing/com.unity3d.player.UnityPlayerActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 21,
+									"ExtraEventID": 65,
+									"Offset": 1,
+									"Value": "8889"
+								},
+								{
+									"ID": 22,
+									"ExtraEventID": 65,
+									"Offset": 2,
+									"Value": "com.magicleap.unity.examples.meshing/u0a105"
+								},
+								{
+									"ID": 23,
+									"ExtraEventID": 65,
+									"Offset": 3,
+									"Value": "com.magicleap.unity.examples.meshing"
+								},
+								{
+									"ID": 24,
+									"ExtraEventID": 65,
+									"Offset": 4,
+									"Value": "com.unity3d.player.UnityPlayerActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "8889"
+							},
+							{
+								"Value": "com.magicleap.unity.examples.meshing/u0a105"
+							},
+							{
+								"Value": "com.magicleap.unity.examples.meshing"
+							},
+							{
+								"Value": "com.unity3d.player.UnityPlayerActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 66,
+							"ExtraStateID": 66,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23276,
+							"FileName": "boot_1/logcat.160",
+							"LineNumber": 2931,
+							"Pid": 3763,
+							"Tid": 3801,
+							"Timestamp": "2022-12-05T10:44:27.91702-03:00",
+							"LogMessage": "[0,217112223,com.magicleap.unity.examples.meshing/com.unity3d.player.UnityPlayerActivity,userLeaving=true]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 67,
+							"ExtraStateID": 67,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23296,
+							"FileName": "boot_1/logcat.140",
+							"LineNumber": 1411,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T10:56:11.689989-03:00",
+							"LogMessage": "Start proc 12213:com.magicleap.unity.examples.meshing/u0a105 for activity {com.magicleap.unity.examples.meshing/com.unity3d.player.UnityPlayerActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 25,
+									"ExtraEventID": 67,
+									"Offset": 1,
+									"Value": "12213"
+								},
+								{
+									"ID": 26,
+									"ExtraEventID": 67,
+									"Offset": 2,
+									"Value": "com.magicleap.unity.examples.meshing/u0a105"
+								},
+								{
+									"ID": 27,
+									"ExtraEventID": 67,
+									"Offset": 3,
+									"Value": "com.magicleap.unity.examples.meshing"
+								},
+								{
+									"ID": 28,
+									"ExtraEventID": 67,
+									"Offset": 4,
+									"Value": "com.unity3d.player.UnityPlayerActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "12213"
+							},
+							{
+								"Value": "com.magicleap.unity.examples.meshing/u0a105"
+							},
+							{
+								"Value": "com.magicleap.unity.examples.meshing"
+							},
+							{
+								"Value": "com.unity3d.player.UnityPlayerActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 68,
+							"ExtraStateID": 68,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23299,
+							"FileName": "boot_1/logcat.137",
+							"LineNumber": 2916,
+							"Pid": 3763,
+							"Tid": 3801,
+							"Timestamp": "2022-12-05T10:58:12.010181-03:00",
+							"LogMessage": "[0,153600000,com.magicleap.unity.examples.meshing/com.unity3d.player.UnityPlayerActivity,userLeaving=true]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 69,
+							"ExtraStateID": 69,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23300,
+							"FileName": "boot_1/logcat.136",
+							"LineNumber": 2335,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T10:59:36.710013-03:00",
+							"LogMessage": "Start proc 13157:com.magicleap.capi.test.meshing/u0a107 for activity {com.magicleap.capi.test.meshing/android.app.NativeActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 29,
+									"ExtraEventID": 69,
+									"Offset": 1,
+									"Value": "13157"
+								},
+								{
+									"ID": 30,
+									"ExtraEventID": 69,
+									"Offset": 2,
+									"Value": "com.magicleap.capi.test.meshing/u0a107"
+								},
+								{
+									"ID": 31,
+									"ExtraEventID": 69,
+									"Offset": 3,
+									"Value": "com.magicleap.capi.test.meshing"
+								},
+								{
+									"ID": 32,
+									"ExtraEventID": 69,
+									"Offset": 4,
+									"Value": "android.app.NativeActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "13157"
+							},
+							{
+								"Value": "com.magicleap.capi.test.meshing/u0a107"
+							},
+							{
+								"Value": "com.magicleap.capi.test.meshing"
+							},
+							{
+								"Value": "android.app.NativeActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 70,
+							"ExtraStateID": 70,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23300,
+							"FileName": "boot_1/logcat.136",
+							"LineNumber": 2588,
+							"Pid": 3763,
+							"Tid": 12771,
+							"Timestamp": "2022-12-05T10:59:37.456598-03:00",
+							"LogMessage": "[0,179130310,com.magicleap.capi.test.meshing/android.app.NativeActivity,userLeaving=true]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 71,
+							"ExtraStateID": 71,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23309,
+							"FileName": "boot_1/logcat.127",
+							"LineNumber": 772,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T11:01:59.597351-03:00",
+							"LogMessage": "Start proc 13852:com.magicleap.unity.examples.meshing/u0a105 for activity {com.magicleap.unity.examples.meshing/com.unity3d.player.UnityPlayerActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 33,
+									"ExtraEventID": 71,
+									"Offset": 1,
+									"Value": "13852"
+								},
+								{
+									"ID": 34,
+									"ExtraEventID": 71,
+									"Offset": 2,
+									"Value": "com.magicleap.unity.examples.meshing/u0a105"
+								},
+								{
+									"ID": 35,
+									"ExtraEventID": 71,
+									"Offset": 3,
+									"Value": "com.magicleap.unity.examples.meshing"
+								},
+								{
+									"ID": 36,
+									"ExtraEventID": 71,
+									"Offset": 4,
+									"Value": "com.unity3d.player.UnityPlayerActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "13852"
+							},
+							{
+								"Value": "com.magicleap.unity.examples.meshing/u0a105"
+							},
+							{
+								"Value": "com.magicleap.unity.examples.meshing"
+							},
+							{
+								"Value": "com.unity3d.player.UnityPlayerActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 72,
+							"ExtraStateID": 72,
+							"EventID": 2,
+							"Event": {
+								"id": 2,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_destroy_activity",
+								"Log": "[%d,%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23309,
+							"FileName": "boot_1/logcat.127",
+							"LineNumber": 2012,
+							"Pid": 3763,
+							"Tid": 3980,
+							"Timestamp": "2022-12-05T11:02:06.683027-03:00",
+							"LogMessage": "[0,248457631,20,com.magicleap.unity.examples.meshing/com.unity3d.player.UnityPlayerActivity,proc died without state saved]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 73,
+							"ExtraStateID": 73,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23309,
+							"FileName": "boot_1/logcat.127",
+							"LineNumber": 2039,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T11:02:06.773435-03:00",
+							"LogMessage": "Start proc 14009:com.magicleap.homemenu/u0a82 for activity {com.magicleap.homemenu/com.magicleap.homemenu.HomeMenuActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 37,
+									"ExtraEventID": 73,
+									"Offset": 1,
+									"Value": "14009"
+								},
+								{
+									"ID": 38,
+									"ExtraEventID": 73,
+									"Offset": 2,
+									"Value": "com.magicleap.homemenu/u0a82"
+								},
+								{
+									"ID": 39,
+									"ExtraEventID": 73,
+									"Offset": 3,
+									"Value": "com.magicleap.homemenu"
+								},
+								{
+									"ID": 40,
+									"ExtraEventID": 73,
+									"Offset": 4,
+									"Value": "com.magicleap.homemenu.HomeMenuActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "14009"
+							},
+							{
+								"Value": "com.magicleap.homemenu/u0a82"
+							},
+							{
+								"Value": "com.magicleap.homemenu"
+							},
+							{
+								"Value": "com.magicleap.homemenu.HomeMenuActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 74,
+							"ExtraStateID": 74,
+							"EventID": 2,
+							"Event": {
+								"id": 2,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_destroy_activity",
+								"Log": "[%d,%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23309,
+							"FileName": "boot_1/logcat.127",
+							"LineNumber": 2090,
+							"Pid": 3763,
+							"Tid": 3966,
+							"Timestamp": "2022-12-05T11:02:08.452222-03:00",
+							"LogMessage": "[0,45445041,14,com.magicleap.homemenu/.HomeMenuActivity]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 75,
+							"ExtraStateID": 75,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23323,
+							"FileName": "boot_1/logcat.113",
+							"LineNumber": 3501,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T11:42:30.366739-03:00",
+							"LogMessage": "Start proc 23091:com.magicleap.unity.tests/u0a108 for activity {com.magicleap.unity.tests/com.unity3d.player.UnityPlayerActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 41,
+									"ExtraEventID": 75,
+									"Offset": 1,
+									"Value": "23091"
+								},
+								{
+									"ID": 42,
+									"ExtraEventID": 75,
+									"Offset": 2,
+									"Value": "com.magicleap.unity.tests/u0a108"
+								},
+								{
+									"ID": 43,
+									"ExtraEventID": 75,
+									"Offset": 3,
+									"Value": "com.magicleap.unity.tests"
+								},
+								{
+									"ID": 44,
+									"ExtraEventID": 75,
+									"Offset": 4,
+									"Value": "com.unity3d.player.UnityPlayerActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "23091"
+							},
+							{
+								"Value": "com.magicleap.unity.tests/u0a108"
+							},
+							{
+								"Value": "com.magicleap.unity.tests"
+							},
+							{
+								"Value": "com.unity3d.player.UnityPlayerActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 76,
+							"ExtraStateID": 76,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23323,
+							"FileName": "boot_1/logcat.113",
+							"LineNumber": 4506,
+							"Pid": 3763,
+							"Tid": 3980,
+							"Timestamp": "2022-12-05T11:42:40.852093-03:00",
+							"LogMessage": "[0,23022350,com.magicleap.unity.tests/com.unity3d.player.UnityPlayerActivity,userLeaving=true]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 77,
+							"ExtraStateID": 77,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23327,
+							"FileName": "boot_1/logcat.109",
+							"LineNumber": 4852,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T11:45:36.265478-03:00",
+							"LogMessage": "Start proc 25143:com.magicleap.unity.tests/u0a108 for activity {com.magicleap.unity.tests/com.unity3d.player.UnityPlayerActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 45,
+									"ExtraEventID": 77,
+									"Offset": 1,
+									"Value": "25143"
+								},
+								{
+									"ID": 46,
+									"ExtraEventID": 77,
+									"Offset": 2,
+									"Value": "com.magicleap.unity.tests/u0a108"
+								},
+								{
+									"ID": 47,
+									"ExtraEventID": 77,
+									"Offset": 3,
+									"Value": "com.magicleap.unity.tests"
+								},
+								{
+									"ID": 48,
+									"ExtraEventID": 77,
+									"Offset": 4,
+									"Value": "com.unity3d.player.UnityPlayerActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "25143"
+							},
+							{
+								"Value": "com.magicleap.unity.tests/u0a108"
+							},
+							{
+								"Value": "com.magicleap.unity.tests"
+							},
+							{
+								"Value": "com.unity3d.player.UnityPlayerActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 78,
+							"ExtraStateID": 78,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23332,
+							"FileName": "boot_1/logcat.104",
+							"LineNumber": 1422,
+							"Pid": 3763,
+							"Tid": 3966,
+							"Timestamp": "2022-12-05T11:50:21.201229-03:00",
+							"LogMessage": "[0,265603942,com.magicleap.unity.tests/com.unity3d.player.UnityPlayerActivity,userLeaving=true]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 79,
+							"ExtraStateID": 79,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23332,
+							"FileName": "boot_1/logcat.104",
+							"LineNumber": 1501,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T11:50:21.725661-03:00",
+							"LogMessage": "Start proc 26536:com.magicleap.unity.examples.meshing/u0a105 for activity {com.magicleap.unity.examples.meshing/com.unity3d.player.UnityPlayerActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 49,
+									"ExtraEventID": 79,
+									"Offset": 1,
+									"Value": "26536"
+								},
+								{
+									"ID": 50,
+									"ExtraEventID": 79,
+									"Offset": 2,
+									"Value": "com.magicleap.unity.examples.meshing/u0a105"
+								},
+								{
+									"ID": 51,
+									"ExtraEventID": 79,
+									"Offset": 3,
+									"Value": "com.magicleap.unity.examples.meshing"
+								},
+								{
+									"ID": 52,
+									"ExtraEventID": 79,
+									"Offset": 4,
+									"Value": "com.unity3d.player.UnityPlayerActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "26536"
+							},
+							{
+								"Value": "com.magicleap.unity.examples.meshing/u0a105"
+							},
+							{
+								"Value": "com.magicleap.unity.examples.meshing"
+							},
+							{
+								"Value": "com.unity3d.player.UnityPlayerActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 80,
+							"ExtraStateID": 80,
+							"EventID": 2,
+							"Event": {
+								"id": 2,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_destroy_activity",
+								"Log": "[%d,%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23349,
+							"FileName": "boot_1/logcat.087",
+							"LineNumber": 1500,
+							"Pid": 3763,
+							"Tid": 3814,
+							"Timestamp": "2022-12-05T12:03:58.10629-03:00",
+							"LogMessage": "[0,84035661,23,com.magicleap.unity.examples.meshing/com.unity3d.player.UnityPlayerActivity,proc died without state saved]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 81,
+							"ExtraStateID": 81,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23349,
+							"FileName": "boot_1/logcat.087",
+							"LineNumber": 1895,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T12:03:59.253292-03:00",
+							"LogMessage": "Start proc 29689:com.magicleap.unity.examples.meshing/u0a105 for activity {com.magicleap.unity.examples.meshing/com.unity3d.player.UnityPlayerActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 53,
+									"ExtraEventID": 81,
+									"Offset": 1,
+									"Value": "29689"
+								},
+								{
+									"ID": 54,
+									"ExtraEventID": 81,
+									"Offset": 2,
+									"Value": "com.magicleap.unity.examples.meshing/u0a105"
+								},
+								{
+									"ID": 55,
+									"ExtraEventID": 81,
+									"Offset": 3,
+									"Value": "com.magicleap.unity.examples.meshing"
+								},
+								{
+									"ID": 56,
+									"ExtraEventID": 81,
+									"Offset": 4,
+									"Value": "com.unity3d.player.UnityPlayerActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "29689"
+							},
+							{
+								"Value": "com.magicleap.unity.examples.meshing/u0a105"
+							},
+							{
+								"Value": "com.magicleap.unity.examples.meshing"
+							},
+							{
+								"Value": "com.unity3d.player.UnityPlayerActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 82,
+							"ExtraStateID": 82,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23357,
+							"FileName": "boot_1/logcat.079",
+							"LineNumber": 3952,
+							"Pid": 3763,
+							"Tid": 3801,
+							"Timestamp": "2022-12-05T12:16:17.616941-03:00",
+							"LogMessage": "[0,11679121,com.magicleap.unity.examples.meshing/com.unity3d.player.UnityPlayerActivity,userLeaving=true]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 83,
+							"ExtraStateID": 83,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23357,
+							"FileName": "boot_1/logcat.079",
+							"LineNumber": 4899,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T12:16:21.297962-03:00",
+							"LogMessage": "Start proc 32480:com.magicleap.unity.tests/u0a108 for activity {com.magicleap.unity.tests/com.unity3d.player.UnityPlayerActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 57,
+									"ExtraEventID": 83,
+									"Offset": 1,
+									"Value": "32480"
+								},
+								{
+									"ID": 58,
+									"ExtraEventID": 83,
+									"Offset": 2,
+									"Value": "com.magicleap.unity.tests/u0a108"
+								},
+								{
+									"ID": 59,
+									"ExtraEventID": 83,
+									"Offset": 3,
+									"Value": "com.magicleap.unity.tests"
+								},
+								{
+									"ID": 60,
+									"ExtraEventID": 83,
+									"Offset": 4,
+									"Value": "com.unity3d.player.UnityPlayerActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "32480"
+							},
+							{
+								"Value": "com.magicleap.unity.tests/u0a108"
+							},
+							{
+								"Value": "com.magicleap.unity.tests"
+							},
+							{
+								"Value": "com.unity3d.player.UnityPlayerActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 84,
+							"ExtraStateID": 84,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23367,
+							"FileName": "boot_1/logcat.069",
+							"LineNumber": 2093,
+							"Pid": 3763,
+							"Tid": 3801,
+							"Timestamp": "2022-12-05T12:27:22.245278-03:00",
+							"LogMessage": "[0,48523358,com.magicleap.unity.tests/com.unity3d.player.UnityPlayerActivity,userLeaving=true]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 85,
+							"ExtraStateID": 85,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23368,
+							"FileName": "boot_1/logcat.068",
+							"LineNumber": 1350,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T12:27:54.289545-03:00",
+							"LogMessage": "Start proc 4735:com.magicleap.unity.tests/u0a109 for activity {com.magicleap.unity.tests/com.unity3d.player.UnityPlayerActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 61,
+									"ExtraEventID": 85,
+									"Offset": 1,
+									"Value": "4735"
+								},
+								{
+									"ID": 62,
+									"ExtraEventID": 85,
+									"Offset": 2,
+									"Value": "com.magicleap.unity.tests/u0a109"
+								},
+								{
+									"ID": 63,
+									"ExtraEventID": 85,
+									"Offset": 3,
+									"Value": "com.magicleap.unity.tests"
+								},
+								{
+									"ID": 64,
+									"ExtraEventID": 85,
+									"Offset": 4,
+									"Value": "com.unity3d.player.UnityPlayerActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "4735"
+							},
+							{
+								"Value": "com.magicleap.unity.tests/u0a109"
+							},
+							{
+								"Value": "com.magicleap.unity.tests"
+							},
+							{
+								"Value": "com.unity3d.player.UnityPlayerActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 86,
+							"ExtraStateID": 86,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23368,
+							"FileName": "boot_1/logcat.068",
+							"LineNumber": 1987,
+							"Pid": 3763,
+							"Tid": 4038,
+							"Timestamp": "2022-12-05T12:27:57.941528-03:00",
+							"LogMessage": "[0,162265410,com.magicleap.unity.tests/com.unity3d.player.UnityPlayerActivity,userLeaving=true]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 87,
+							"ExtraStateID": 87,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23369,
+							"FileName": "boot_1/logcat.067",
+							"LineNumber": 5082,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T12:29:27.705904-03:00",
+							"LogMessage": "Start proc 5730:com.magicleap.unity.tests/u0a110 for activity {com.magicleap.unity.tests/com.unity3d.player.UnityPlayerActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 65,
+									"ExtraEventID": 87,
+									"Offset": 1,
+									"Value": "5730"
+								},
+								{
+									"ID": 66,
+									"ExtraEventID": 87,
+									"Offset": 2,
+									"Value": "com.magicleap.unity.tests/u0a110"
+								},
+								{
+									"ID": 67,
+									"ExtraEventID": 87,
+									"Offset": 3,
+									"Value": "com.magicleap.unity.tests"
+								},
+								{
+									"ID": 68,
+									"ExtraEventID": 87,
+									"Offset": 4,
+									"Value": "com.unity3d.player.UnityPlayerActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "5730"
+							},
+							{
+								"Value": "com.magicleap.unity.tests/u0a110"
+							},
+							{
+								"Value": "com.magicleap.unity.tests"
+							},
+							{
+								"Value": "com.unity3d.player.UnityPlayerActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 88,
+							"ExtraStateID": 88,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23370,
+							"FileName": "boot_1/logcat.066",
+							"LineNumber": 211,
+							"Pid": 3763,
+							"Tid": 8627,
+							"Timestamp": "2022-12-05T12:29:37.324513-03:00",
+							"LogMessage": "[0,142332471,com.magicleap.unity.tests/com.unity3d.player.UnityPlayerActivity,userLeaving=true]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 89,
+							"ExtraStateID": 89,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23372,
+							"FileName": "boot_1/logcat.064",
+							"LineNumber": 3140,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T12:31:36.37815-03:00",
+							"LogMessage": "Start proc 6600:com.magicleap.unity.tests/u0a111 for activity {com.magicleap.unity.tests/com.unity3d.player.UnityPlayerActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 69,
+									"ExtraEventID": 89,
+									"Offset": 1,
+									"Value": "6600"
+								},
+								{
+									"ID": 70,
+									"ExtraEventID": 89,
+									"Offset": 2,
+									"Value": "com.magicleap.unity.tests/u0a111"
+								},
+								{
+									"ID": 71,
+									"ExtraEventID": 89,
+									"Offset": 3,
+									"Value": "com.magicleap.unity.tests"
+								},
+								{
+									"ID": 72,
+									"ExtraEventID": 89,
+									"Offset": 4,
+									"Value": "com.unity3d.player.UnityPlayerActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "6600"
+							},
+							{
+								"Value": "com.magicleap.unity.tests/u0a111"
+							},
+							{
+								"Value": "com.magicleap.unity.tests"
+							},
+							{
+								"Value": "com.unity3d.player.UnityPlayerActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 90,
+							"ExtraStateID": 90,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23372,
+							"FileName": "boot_1/logcat.064",
+							"LineNumber": 3849,
+							"Pid": 3763,
+							"Tid": 8627,
+							"Timestamp": "2022-12-05T12:31:44.796277-03:00",
+							"LogMessage": "[0,197634629,com.magicleap.unity.tests/com.unity3d.player.UnityPlayerActivity,userLeaving=true]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 91,
+							"ExtraStateID": 91,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23263,
+							"FileName": "boot_1/logcat.173",
+							"LineNumber": 4626,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T10:33:46.253594-03:00",
+							"LogMessage": "Start proc 4666:com.android.settings/1000 for activity {com.android.settings/com.android.settings.FallbackHome}",
+							"ExtraParameters": [
+								{
+									"ID": 109,
+									"ExtraEventID": 91,
+									"Offset": 1,
+									"Value": "4666"
+								},
+								{
+									"ID": 110,
+									"ExtraEventID": 91,
+									"Offset": 2,
+									"Value": "com.android.settings/1000"
+								},
+								{
+									"ID": 111,
+									"ExtraEventID": 91,
+									"Offset": 3,
+									"Value": "com.android.settings"
+								},
+								{
+									"ID": 112,
+									"ExtraEventID": 91,
+									"Offset": 4,
+									"Value": "com.android.settings.FallbackHome"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "4666"
+							},
+							{
+								"Value": "com.android.settings/1000"
+							},
+							{
+								"Value": "com.android.settings"
+							},
+							{
+								"Value": "com.android.settings.FallbackHome"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 92,
+							"ExtraStateID": 92,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23264,
+							"FileName": "boot_1/logcat.172",
+							"LineNumber": 7408,
+							"Pid": 3763,
+							"Tid": 4256,
+							"Timestamp": "2022-12-05T10:33:50.534152-03:00",
+							"LogMessage": "[0,134636412,com.android.settings/.FallbackHome,(none)]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 93,
+							"ExtraStateID": 93,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23266,
+							"FileName": "boot_1/logcat.170",
+							"LineNumber": 2550,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T10:35:07.928907-03:00",
+							"LogMessage": "Start proc 5816:com.magicleap.homemenu/u0a82 for activity {com.magicleap.homemenu/com.magicleap.homemenu.HomeMenuActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 113,
+									"ExtraEventID": 93,
+									"Offset": 1,
+									"Value": "5816"
+								},
+								{
+									"ID": 114,
+									"ExtraEventID": 93,
+									"Offset": 2,
+									"Value": "com.magicleap.homemenu/u0a82"
+								},
+								{
+									"ID": 115,
+									"ExtraEventID": 93,
+									"Offset": 3,
+									"Value": "com.magicleap.homemenu"
+								},
+								{
+									"ID": 116,
+									"ExtraEventID": 93,
+									"Offset": 4,
+									"Value": "com.magicleap.homemenu.HomeMenuActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "5816"
+							},
+							{
+								"Value": "com.magicleap.homemenu/u0a82"
+							},
+							{
+								"Value": "com.magicleap.homemenu"
+							},
+							{
+								"Value": "com.magicleap.homemenu.HomeMenuActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 94,
+							"ExtraStateID": 94,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23266,
+							"FileName": "boot_1/logcat.170",
+							"LineNumber": 2792,
+							"Pid": 3763,
+							"Tid": 3784,
+							"Timestamp": "2022-12-05T10:35:08.206048-03:00",
+							"LogMessage": "[0,45445041,com.magicleap.homemenu/.HomeMenuActivity,(none)]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 95,
+							"ExtraStateID": 95,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23267,
+							"FileName": "boot_1/logcat.169",
+							"LineNumber": 4826,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T10:36:20.969775-03:00",
+							"LogMessage": "Start proc 6754:com.magicleap.unity.examples/u0a104 for activity {com.magicleap.unity.examples/com.unity3d.player.UnityPlayerActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 117,
+									"ExtraEventID": 95,
+									"Offset": 1,
+									"Value": "6754"
+								},
+								{
+									"ID": 118,
+									"ExtraEventID": 95,
+									"Offset": 2,
+									"Value": "com.magicleap.unity.examples/u0a104"
+								},
+								{
+									"ID": 119,
+									"ExtraEventID": 95,
+									"Offset": 3,
+									"Value": "com.magicleap.unity.examples"
+								},
+								{
+									"ID": 120,
+									"ExtraEventID": 95,
+									"Offset": 4,
+									"Value": "com.unity3d.player.UnityPlayerActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "6754"
+							},
+							{
+								"Value": "com.magicleap.unity.examples/u0a104"
+							},
+							{
+								"Value": "com.magicleap.unity.examples"
+							},
+							{
+								"Value": "com.unity3d.player.UnityPlayerActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 96,
+							"ExtraStateID": 96,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23267,
+							"FileName": "boot_1/logcat.169",
+							"LineNumber": 4876,
+							"Pid": 3763,
+							"Tid": 3813,
+							"Timestamp": "2022-12-05T10:36:21.058211-03:00",
+							"LogMessage": "[0,207804718,com.magicleap.unity.examples/com.unity3d.player.UnityPlayerActivity,160]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 97,
+							"ExtraStateID": 97,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23272,
+							"FileName": "boot_1/logcat.164",
+							"LineNumber": 2268,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T10:42:22.258005-03:00",
+							"LogMessage": "Start proc 8451:com.magicleap.unity.examples.meshing/u0a105 for activity {com.magicleap.unity.examples.meshing/com.unity3d.player.UnityPlayerActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 121,
+									"ExtraEventID": 97,
+									"Offset": 1,
+									"Value": "8451"
+								},
+								{
+									"ID": 122,
+									"ExtraEventID": 97,
+									"Offset": 2,
+									"Value": "com.magicleap.unity.examples.meshing/u0a105"
+								},
+								{
+									"ID": 123,
+									"ExtraEventID": 97,
+									"Offset": 3,
+									"Value": "com.magicleap.unity.examples.meshing"
+								},
+								{
+									"ID": 124,
+									"ExtraEventID": 97,
+									"Offset": 4,
+									"Value": "com.unity3d.player.UnityPlayerActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "8451"
+							},
+							{
+								"Value": "com.magicleap.unity.examples.meshing/u0a105"
+							},
+							{
+								"Value": "com.magicleap.unity.examples.meshing"
+							},
+							{
+								"Value": "com.unity3d.player.UnityPlayerActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 98,
+							"ExtraStateID": 98,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23272,
+							"FileName": "boot_1/logcat.164",
+							"LineNumber": 2511,
+							"Pid": 3763,
+							"Tid": 7003,
+							"Timestamp": "2022-12-05T10:42:23.521625-03:00",
+							"LogMessage": "[0,139167167,com.magicleap.unity.examples.meshing/com.unity3d.player.UnityPlayerActivity,userLeaving=true]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 99,
+							"ExtraStateID": 99,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23273,
+							"FileName": "boot_1/logcat.163",
+							"LineNumber": 2331,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T10:42:39.834678-03:00",
+							"LogMessage": "Start proc 8636:com.magicleap.homemenu/u0a82 for activity {com.magicleap.homemenu/com.magicleap.homemenu.HomeMenuActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 125,
+									"ExtraEventID": 99,
+									"Offset": 1,
+									"Value": "8636"
+								},
+								{
+									"ID": 126,
+									"ExtraEventID": 99,
+									"Offset": 2,
+									"Value": "com.magicleap.homemenu/u0a82"
+								},
+								{
+									"ID": 127,
+									"ExtraEventID": 99,
+									"Offset": 3,
+									"Value": "com.magicleap.homemenu"
+								},
+								{
+									"ID": 128,
+									"ExtraEventID": 99,
+									"Offset": 4,
+									"Value": "com.magicleap.homemenu.HomeMenuActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "8636"
+							},
+							{
+								"Value": "com.magicleap.homemenu/u0a82"
+							},
+							{
+								"Value": "com.magicleap.homemenu"
+							},
+							{
+								"Value": "com.magicleap.homemenu.HomeMenuActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 100,
+							"ExtraStateID": 100,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23273,
+							"FileName": "boot_1/logcat.163",
+							"LineNumber": 4263,
+							"Pid": 3763,
+							"Tid": 4273,
+							"Timestamp": "2022-12-05T10:42:55.429584-03:00",
+							"LogMessage": "[0,45445041,com.magicleap.homemenu/.HomeMenuActivity,userLeaving=true]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 101,
+							"ExtraStateID": 101,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23273,
+							"FileName": "boot_1/logcat.163",
+							"LineNumber": 4286,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T10:42:55.48174-03:00",
+							"LogMessage": "Start proc 8889:com.magicleap.unity.examples.meshing/u0a105 for activity {com.magicleap.unity.examples.meshing/com.unity3d.player.UnityPlayerActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 129,
+									"ExtraEventID": 101,
+									"Offset": 1,
+									"Value": "8889"
+								},
+								{
+									"ID": 130,
+									"ExtraEventID": 101,
+									"Offset": 2,
+									"Value": "com.magicleap.unity.examples.meshing/u0a105"
+								},
+								{
+									"ID": 131,
+									"ExtraEventID": 101,
+									"Offset": 3,
+									"Value": "com.magicleap.unity.examples.meshing"
+								},
+								{
+									"ID": 132,
+									"ExtraEventID": 101,
+									"Offset": 4,
+									"Value": "com.unity3d.player.UnityPlayerActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "8889"
+							},
+							{
+								"Value": "com.magicleap.unity.examples.meshing/u0a105"
+							},
+							{
+								"Value": "com.magicleap.unity.examples.meshing"
+							},
+							{
+								"Value": "com.unity3d.player.UnityPlayerActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 102,
+							"ExtraStateID": 102,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23276,
+							"FileName": "boot_1/logcat.160",
+							"LineNumber": 2931,
+							"Pid": 3763,
+							"Tid": 3801,
+							"Timestamp": "2022-12-05T10:44:27.91702-03:00",
+							"LogMessage": "[0,217112223,com.magicleap.unity.examples.meshing/com.unity3d.player.UnityPlayerActivity,userLeaving=true]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 103,
+							"ExtraStateID": 103,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23296,
+							"FileName": "boot_1/logcat.140",
+							"LineNumber": 1411,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T10:56:11.689989-03:00",
+							"LogMessage": "Start proc 12213:com.magicleap.unity.examples.meshing/u0a105 for activity {com.magicleap.unity.examples.meshing/com.unity3d.player.UnityPlayerActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 133,
+									"ExtraEventID": 103,
+									"Offset": 1,
+									"Value": "12213"
+								},
+								{
+									"ID": 134,
+									"ExtraEventID": 103,
+									"Offset": 2,
+									"Value": "com.magicleap.unity.examples.meshing/u0a105"
+								},
+								{
+									"ID": 135,
+									"ExtraEventID": 103,
+									"Offset": 3,
+									"Value": "com.magicleap.unity.examples.meshing"
+								},
+								{
+									"ID": 136,
+									"ExtraEventID": 103,
+									"Offset": 4,
+									"Value": "com.unity3d.player.UnityPlayerActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "12213"
+							},
+							{
+								"Value": "com.magicleap.unity.examples.meshing/u0a105"
+							},
+							{
+								"Value": "com.magicleap.unity.examples.meshing"
+							},
+							{
+								"Value": "com.unity3d.player.UnityPlayerActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 104,
+							"ExtraStateID": 104,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23299,
+							"FileName": "boot_1/logcat.137",
+							"LineNumber": 2916,
+							"Pid": 3763,
+							"Tid": 3801,
+							"Timestamp": "2022-12-05T10:58:12.010181-03:00",
+							"LogMessage": "[0,153600000,com.magicleap.unity.examples.meshing/com.unity3d.player.UnityPlayerActivity,userLeaving=true]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 105,
+							"ExtraStateID": 105,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23300,
+							"FileName": "boot_1/logcat.136",
+							"LineNumber": 2335,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T10:59:36.710013-03:00",
+							"LogMessage": "Start proc 13157:com.magicleap.capi.test.meshing/u0a107 for activity {com.magicleap.capi.test.meshing/android.app.NativeActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 137,
+									"ExtraEventID": 105,
+									"Offset": 1,
+									"Value": "13157"
+								},
+								{
+									"ID": 138,
+									"ExtraEventID": 105,
+									"Offset": 2,
+									"Value": "com.magicleap.capi.test.meshing/u0a107"
+								},
+								{
+									"ID": 139,
+									"ExtraEventID": 105,
+									"Offset": 3,
+									"Value": "com.magicleap.capi.test.meshing"
+								},
+								{
+									"ID": 140,
+									"ExtraEventID": 105,
+									"Offset": 4,
+									"Value": "android.app.NativeActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "13157"
+							},
+							{
+								"Value": "com.magicleap.capi.test.meshing/u0a107"
+							},
+							{
+								"Value": "com.magicleap.capi.test.meshing"
+							},
+							{
+								"Value": "android.app.NativeActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 106,
+							"ExtraStateID": 106,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23300,
+							"FileName": "boot_1/logcat.136",
+							"LineNumber": 2588,
+							"Pid": 3763,
+							"Tid": 12771,
+							"Timestamp": "2022-12-05T10:59:37.456598-03:00",
+							"LogMessage": "[0,179130310,com.magicleap.capi.test.meshing/android.app.NativeActivity,userLeaving=true]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 107,
+							"ExtraStateID": 107,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23309,
+							"FileName": "boot_1/logcat.127",
+							"LineNumber": 772,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T11:01:59.597351-03:00",
+							"LogMessage": "Start proc 13852:com.magicleap.unity.examples.meshing/u0a105 for activity {com.magicleap.unity.examples.meshing/com.unity3d.player.UnityPlayerActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 141,
+									"ExtraEventID": 107,
+									"Offset": 1,
+									"Value": "13852"
+								},
+								{
+									"ID": 142,
+									"ExtraEventID": 107,
+									"Offset": 2,
+									"Value": "com.magicleap.unity.examples.meshing/u0a105"
+								},
+								{
+									"ID": 143,
+									"ExtraEventID": 107,
+									"Offset": 3,
+									"Value": "com.magicleap.unity.examples.meshing"
+								},
+								{
+									"ID": 144,
+									"ExtraEventID": 107,
+									"Offset": 4,
+									"Value": "com.unity3d.player.UnityPlayerActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "13852"
+							},
+							{
+								"Value": "com.magicleap.unity.examples.meshing/u0a105"
+							},
+							{
+								"Value": "com.magicleap.unity.examples.meshing"
+							},
+							{
+								"Value": "com.unity3d.player.UnityPlayerActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 108,
+							"ExtraStateID": 108,
+							"EventID": 2,
+							"Event": {
+								"id": 2,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_destroy_activity",
+								"Log": "[%d,%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23309,
+							"FileName": "boot_1/logcat.127",
+							"LineNumber": 2012,
+							"Pid": 3763,
+							"Tid": 3980,
+							"Timestamp": "2022-12-05T11:02:06.683027-03:00",
+							"LogMessage": "[0,248457631,20,com.magicleap.unity.examples.meshing/com.unity3d.player.UnityPlayerActivity,proc died without state saved]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 109,
+							"ExtraStateID": 109,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23309,
+							"FileName": "boot_1/logcat.127",
+							"LineNumber": 2039,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T11:02:06.773435-03:00",
+							"LogMessage": "Start proc 14009:com.magicleap.homemenu/u0a82 for activity {com.magicleap.homemenu/com.magicleap.homemenu.HomeMenuActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 145,
+									"ExtraEventID": 109,
+									"Offset": 1,
+									"Value": "14009"
+								},
+								{
+									"ID": 146,
+									"ExtraEventID": 109,
+									"Offset": 2,
+									"Value": "com.magicleap.homemenu/u0a82"
+								},
+								{
+									"ID": 147,
+									"ExtraEventID": 109,
+									"Offset": 3,
+									"Value": "com.magicleap.homemenu"
+								},
+								{
+									"ID": 148,
+									"ExtraEventID": 109,
+									"Offset": 4,
+									"Value": "com.magicleap.homemenu.HomeMenuActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "14009"
+							},
+							{
+								"Value": "com.magicleap.homemenu/u0a82"
+							},
+							{
+								"Value": "com.magicleap.homemenu"
+							},
+							{
+								"Value": "com.magicleap.homemenu.HomeMenuActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 110,
+							"ExtraStateID": 110,
+							"EventID": 2,
+							"Event": {
+								"id": 2,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_destroy_activity",
+								"Log": "[%d,%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23309,
+							"FileName": "boot_1/logcat.127",
+							"LineNumber": 2090,
+							"Pid": 3763,
+							"Tid": 3966,
+							"Timestamp": "2022-12-05T11:02:08.452222-03:00",
+							"LogMessage": "[0,45445041,14,com.magicleap.homemenu/.HomeMenuActivity]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 111,
+							"ExtraStateID": 111,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23323,
+							"FileName": "boot_1/logcat.113",
+							"LineNumber": 3501,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T11:42:30.366739-03:00",
+							"LogMessage": "Start proc 23091:com.magicleap.unity.tests/u0a108 for activity {com.magicleap.unity.tests/com.unity3d.player.UnityPlayerActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 149,
+									"ExtraEventID": 111,
+									"Offset": 1,
+									"Value": "23091"
+								},
+								{
+									"ID": 150,
+									"ExtraEventID": 111,
+									"Offset": 2,
+									"Value": "com.magicleap.unity.tests/u0a108"
+								},
+								{
+									"ID": 151,
+									"ExtraEventID": 111,
+									"Offset": 3,
+									"Value": "com.magicleap.unity.tests"
+								},
+								{
+									"ID": 152,
+									"ExtraEventID": 111,
+									"Offset": 4,
+									"Value": "com.unity3d.player.UnityPlayerActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "23091"
+							},
+							{
+								"Value": "com.magicleap.unity.tests/u0a108"
+							},
+							{
+								"Value": "com.magicleap.unity.tests"
+							},
+							{
+								"Value": "com.unity3d.player.UnityPlayerActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 112,
+							"ExtraStateID": 112,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23323,
+							"FileName": "boot_1/logcat.113",
+							"LineNumber": 4506,
+							"Pid": 3763,
+							"Tid": 3980,
+							"Timestamp": "2022-12-05T11:42:40.852093-03:00",
+							"LogMessage": "[0,23022350,com.magicleap.unity.tests/com.unity3d.player.UnityPlayerActivity,userLeaving=true]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 113,
+							"ExtraStateID": 113,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23327,
+							"FileName": "boot_1/logcat.109",
+							"LineNumber": 4852,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T11:45:36.265478-03:00",
+							"LogMessage": "Start proc 25143:com.magicleap.unity.tests/u0a108 for activity {com.magicleap.unity.tests/com.unity3d.player.UnityPlayerActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 153,
+									"ExtraEventID": 113,
+									"Offset": 1,
+									"Value": "25143"
+								},
+								{
+									"ID": 154,
+									"ExtraEventID": 113,
+									"Offset": 2,
+									"Value": "com.magicleap.unity.tests/u0a108"
+								},
+								{
+									"ID": 155,
+									"ExtraEventID": 113,
+									"Offset": 3,
+									"Value": "com.magicleap.unity.tests"
+								},
+								{
+									"ID": 156,
+									"ExtraEventID": 113,
+									"Offset": 4,
+									"Value": "com.unity3d.player.UnityPlayerActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "25143"
+							},
+							{
+								"Value": "com.magicleap.unity.tests/u0a108"
+							},
+							{
+								"Value": "com.magicleap.unity.tests"
+							},
+							{
+								"Value": "com.unity3d.player.UnityPlayerActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 114,
+							"ExtraStateID": 114,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23332,
+							"FileName": "boot_1/logcat.104",
+							"LineNumber": 1422,
+							"Pid": 3763,
+							"Tid": 3966,
+							"Timestamp": "2022-12-05T11:50:21.201229-03:00",
+							"LogMessage": "[0,265603942,com.magicleap.unity.tests/com.unity3d.player.UnityPlayerActivity,userLeaving=true]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 115,
+							"ExtraStateID": 115,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23332,
+							"FileName": "boot_1/logcat.104",
+							"LineNumber": 1501,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T11:50:21.725661-03:00",
+							"LogMessage": "Start proc 26536:com.magicleap.unity.examples.meshing/u0a105 for activity {com.magicleap.unity.examples.meshing/com.unity3d.player.UnityPlayerActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 157,
+									"ExtraEventID": 115,
+									"Offset": 1,
+									"Value": "26536"
+								},
+								{
+									"ID": 158,
+									"ExtraEventID": 115,
+									"Offset": 2,
+									"Value": "com.magicleap.unity.examples.meshing/u0a105"
+								},
+								{
+									"ID": 159,
+									"ExtraEventID": 115,
+									"Offset": 3,
+									"Value": "com.magicleap.unity.examples.meshing"
+								},
+								{
+									"ID": 160,
+									"ExtraEventID": 115,
+									"Offset": 4,
+									"Value": "com.unity3d.player.UnityPlayerActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "26536"
+							},
+							{
+								"Value": "com.magicleap.unity.examples.meshing/u0a105"
+							},
+							{
+								"Value": "com.magicleap.unity.examples.meshing"
+							},
+							{
+								"Value": "com.unity3d.player.UnityPlayerActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 116,
+							"ExtraStateID": 116,
+							"EventID": 2,
+							"Event": {
+								"id": 2,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_destroy_activity",
+								"Log": "[%d,%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23349,
+							"FileName": "boot_1/logcat.087",
+							"LineNumber": 1500,
+							"Pid": 3763,
+							"Tid": 3814,
+							"Timestamp": "2022-12-05T12:03:58.10629-03:00",
+							"LogMessage": "[0,84035661,23,com.magicleap.unity.examples.meshing/com.unity3d.player.UnityPlayerActivity,proc died without state saved]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 117,
+							"ExtraStateID": 117,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23349,
+							"FileName": "boot_1/logcat.087",
+							"LineNumber": 1895,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T12:03:59.253292-03:00",
+							"LogMessage": "Start proc 29689:com.magicleap.unity.examples.meshing/u0a105 for activity {com.magicleap.unity.examples.meshing/com.unity3d.player.UnityPlayerActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 161,
+									"ExtraEventID": 117,
+									"Offset": 1,
+									"Value": "29689"
+								},
+								{
+									"ID": 162,
+									"ExtraEventID": 117,
+									"Offset": 2,
+									"Value": "com.magicleap.unity.examples.meshing/u0a105"
+								},
+								{
+									"ID": 163,
+									"ExtraEventID": 117,
+									"Offset": 3,
+									"Value": "com.magicleap.unity.examples.meshing"
+								},
+								{
+									"ID": 164,
+									"ExtraEventID": 117,
+									"Offset": 4,
+									"Value": "com.unity3d.player.UnityPlayerActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "29689"
+							},
+							{
+								"Value": "com.magicleap.unity.examples.meshing/u0a105"
+							},
+							{
+								"Value": "com.magicleap.unity.examples.meshing"
+							},
+							{
+								"Value": "com.unity3d.player.UnityPlayerActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 118,
+							"ExtraStateID": 118,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23357,
+							"FileName": "boot_1/logcat.079",
+							"LineNumber": 3952,
+							"Pid": 3763,
+							"Tid": 3801,
+							"Timestamp": "2022-12-05T12:16:17.616941-03:00",
+							"LogMessage": "[0,11679121,com.magicleap.unity.examples.meshing/com.unity3d.player.UnityPlayerActivity,userLeaving=true]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 119,
+							"ExtraStateID": 119,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23357,
+							"FileName": "boot_1/logcat.079",
+							"LineNumber": 4899,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T12:16:21.297962-03:00",
+							"LogMessage": "Start proc 32480:com.magicleap.unity.tests/u0a108 for activity {com.magicleap.unity.tests/com.unity3d.player.UnityPlayerActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 165,
+									"ExtraEventID": 119,
+									"Offset": 1,
+									"Value": "32480"
+								},
+								{
+									"ID": 166,
+									"ExtraEventID": 119,
+									"Offset": 2,
+									"Value": "com.magicleap.unity.tests/u0a108"
+								},
+								{
+									"ID": 167,
+									"ExtraEventID": 119,
+									"Offset": 3,
+									"Value": "com.magicleap.unity.tests"
+								},
+								{
+									"ID": 168,
+									"ExtraEventID": 119,
+									"Offset": 4,
+									"Value": "com.unity3d.player.UnityPlayerActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "32480"
+							},
+							{
+								"Value": "com.magicleap.unity.tests/u0a108"
+							},
+							{
+								"Value": "com.magicleap.unity.tests"
+							},
+							{
+								"Value": "com.unity3d.player.UnityPlayerActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 120,
+							"ExtraStateID": 120,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23367,
+							"FileName": "boot_1/logcat.069",
+							"LineNumber": 2093,
+							"Pid": 3763,
+							"Tid": 3801,
+							"Timestamp": "2022-12-05T12:27:22.245278-03:00",
+							"LogMessage": "[0,48523358,com.magicleap.unity.tests/com.unity3d.player.UnityPlayerActivity,userLeaving=true]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 121,
+							"ExtraStateID": 121,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23368,
+							"FileName": "boot_1/logcat.068",
+							"LineNumber": 1350,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T12:27:54.289545-03:00",
+							"LogMessage": "Start proc 4735:com.magicleap.unity.tests/u0a109 for activity {com.magicleap.unity.tests/com.unity3d.player.UnityPlayerActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 169,
+									"ExtraEventID": 121,
+									"Offset": 1,
+									"Value": "4735"
+								},
+								{
+									"ID": 170,
+									"ExtraEventID": 121,
+									"Offset": 2,
+									"Value": "com.magicleap.unity.tests/u0a109"
+								},
+								{
+									"ID": 171,
+									"ExtraEventID": 121,
+									"Offset": 3,
+									"Value": "com.magicleap.unity.tests"
+								},
+								{
+									"ID": 172,
+									"ExtraEventID": 121,
+									"Offset": 4,
+									"Value": "com.unity3d.player.UnityPlayerActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "4735"
+							},
+							{
+								"Value": "com.magicleap.unity.tests/u0a109"
+							},
+							{
+								"Value": "com.magicleap.unity.tests"
+							},
+							{
+								"Value": "com.unity3d.player.UnityPlayerActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 122,
+							"ExtraStateID": 122,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23368,
+							"FileName": "boot_1/logcat.068",
+							"LineNumber": 1987,
+							"Pid": 3763,
+							"Tid": 4038,
+							"Timestamp": "2022-12-05T12:27:57.941528-03:00",
+							"LogMessage": "[0,162265410,com.magicleap.unity.tests/com.unity3d.player.UnityPlayerActivity,userLeaving=true]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 123,
+							"ExtraStateID": 123,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23369,
+							"FileName": "boot_1/logcat.067",
+							"LineNumber": 5082,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T12:29:27.705904-03:00",
+							"LogMessage": "Start proc 5730:com.magicleap.unity.tests/u0a110 for activity {com.magicleap.unity.tests/com.unity3d.player.UnityPlayerActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 173,
+									"ExtraEventID": 123,
+									"Offset": 1,
+									"Value": "5730"
+								},
+								{
+									"ID": 174,
+									"ExtraEventID": 123,
+									"Offset": 2,
+									"Value": "com.magicleap.unity.tests/u0a110"
+								},
+								{
+									"ID": 175,
+									"ExtraEventID": 123,
+									"Offset": 3,
+									"Value": "com.magicleap.unity.tests"
+								},
+								{
+									"ID": 176,
+									"ExtraEventID": 123,
+									"Offset": 4,
+									"Value": "com.unity3d.player.UnityPlayerActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "5730"
+							},
+							{
+								"Value": "com.magicleap.unity.tests/u0a110"
+							},
+							{
+								"Value": "com.magicleap.unity.tests"
+							},
+							{
+								"Value": "com.unity3d.player.UnityPlayerActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 124,
+							"ExtraStateID": 124,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23370,
+							"FileName": "boot_1/logcat.066",
+							"LineNumber": 211,
+							"Pid": 3763,
+							"Tid": 8627,
+							"Timestamp": "2022-12-05T12:29:37.324513-03:00",
+							"LogMessage": "[0,142332471,com.magicleap.unity.tests/com.unity3d.player.UnityPlayerActivity,userLeaving=true]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		},
+		{
+			"Start": {
+				"Message": "Application %0%2 starting",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process started %3",
+						"ExtraEvent": {
+							"ID": 125,
+							"ExtraStateID": 125,
+							"EventID": 1,
+							"Event": {
+								"id": 1,
+								"StateID": 1,
+								"Name": "Process started %3",
+								"Process": "ActivityManager",
+								"Log": "Start proc %d:%s for activity {%s/%s}"
+							},
+							"Location": "L",
+							"FileID": 23372,
+							"FileName": "boot_1/logcat.064",
+							"LineNumber": 3140,
+							"Pid": 3763,
+							"Tid": 3815,
+							"Timestamp": "2022-12-05T12:31:36.37815-03:00",
+							"LogMessage": "Start proc 6600:com.magicleap.unity.tests/u0a111 for activity {com.magicleap.unity.tests/com.unity3d.player.UnityPlayerActivity}",
+							"ExtraParameters": [
+								{
+									"ID": 177,
+									"ExtraEventID": 125,
+									"Offset": 1,
+									"Value": "6600"
+								},
+								{
+									"ID": 178,
+									"ExtraEventID": 125,
+									"Offset": 2,
+									"Value": "com.magicleap.unity.tests/u0a111"
+								},
+								{
+									"ID": 179,
+									"ExtraEventID": 125,
+									"Offset": 3,
+									"Value": "com.magicleap.unity.tests"
+								},
+								{
+									"ID": 180,
+									"ExtraEventID": 125,
+									"Offset": 4,
+									"Value": "com.unity3d.player.UnityPlayerActivity"
+								}
+							]
+						},
+						"LvParameters": [
+							{
+								"Value": "6600"
+							},
+							{
+								"Value": "com.magicleap.unity.tests/u0a111"
+							},
+							{
+								"Value": "com.magicleap.unity.tests"
+							},
+							{
+								"Value": "com.unity3d.player.UnityPlayerActivity"
+							}
+						]
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			},
+			"End": {
+				"Message": "Application %0%2 stopped",
+				"PassCondName": "any_found",
+				"LvEvents": [
+					{
+						"Name": "Process %0%3 stopped",
+						"ExtraEvent": {
+							"ID": 126,
+							"ExtraStateID": 126,
+							"EventID": 3,
+							"Event": {
+								"id": 3,
+								"StateID": 2,
+								"Name": "Process %0%3 stopped",
+								"Process": "am_kill",
+								"Log": "[%d,%d,%0%2/%s]"
+							},
+							"Location": "L",
+							"FileID": 23372,
+							"FileName": "boot_1/logcat.064",
+							"LineNumber": 3849,
+							"Pid": 3763,
+							"Tid": 8627,
+							"Timestamp": "2022-12-05T12:31:44.796277-03:00",
+							"LogMessage": "[0,197634629,com.magicleap.unity.tests/com.unity3d.player.UnityPlayerActivity,userLeaving=true]",
+							"ExtraParameters": []
+						},
+						"LvParameters": []
+					}
+				],
+				"LvFailCond": {
+					"FailureMessage": ""
+				}
+			}
+		}
+	]
+}

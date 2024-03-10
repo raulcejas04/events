@@ -10,7 +10,7 @@ import(
 func main() {
 	initialize()
 	postgres.NewConnection()
-	l:=postgres.GetLearning( 2711, 1, "boot_1" )
+	l:=postgres.GetLvExtra( 2711, 1, "boot_1" )
 
         u, err := json.MarshalIndent(l,"", "\t")
         if err != nil {

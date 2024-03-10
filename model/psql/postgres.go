@@ -52,7 +52,7 @@ type Scenario struct {
 	KnowledgeDefID		uint
 	TypeScenarioID		uint
 	TypeScenario 		TypeScenario  	//`gorm:"foreignkey:ScenarioId;references:ID"`
-	FailureCond  		FailureCond	`gorm:"constraint:OnDelete:CASCADE;foreignkey:ScenarioID;references:ID;"`
+	FailureCond  		FailureCond	//`gorm:"constraint:OnDelete:CASCADE;foreignkey:ScenarioID;references:ID;"`
 	States       		[]State	`gorm:"constraint:OnDelete:CASCADE;foreignkey:ScenarioID;references:ID;"`
 }
 
@@ -156,7 +156,7 @@ type ExtraEvent struct {
 	Pid		int
 	Tid		int
 	Timestamp	time.Time
-	Message	string
+	LogMessage	string
 	ExtraParameters	[]ExtraParameter  `gorm:"foreignkey:ExtraEventID;references:ID;constraint:OnDelete:CASCADE"`
 }
 

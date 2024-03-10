@@ -41,13 +41,6 @@ for _,s := range k.Scenarios {
 return &events
 }
 
-func ( s *State ) GetState( id uint ) {
-result:=DbEvents.Find( s, id )
-if result.Error != nil {
-	log.Errorf( "Error getting state %+v", result.Error )
-}
-}
-
 func ( s *Scenario ) GetScenario( id uint ) {
 result:=DbEvents.Find( s, id )
 if result.Error != nil {
@@ -55,10 +48,24 @@ if result.Error != nil {
 }
 }
 
+func ( s *State ) GetState( id uint ) {
+result:=DbEvents.Find( s, id )
+if result.Error != nil {
+	log.Errorf( "Error getting state %+v", result.Error )
+}
+}
+
 func ( e *Event ) GetEvent( id uint ) {
 result:=DbEvents.Find( e, id )
 if result.Error != nil {
 	log.Errorf( "Error getting event %+v", result.Error )
+}
+}
+
+func (t *TypeScenario) GetTypeScenario( id uint ) {
+result:=DbEvents.Find( t, id )
+if result.Error != nil {
+	log.Errorf( "Error getting typeScenario %+v", result.Error )
 }
 }
 
