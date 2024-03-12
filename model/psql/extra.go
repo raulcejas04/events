@@ -74,7 +74,7 @@ func ( ev *ExtraEvent ) AddExtraParameter( param ExtraParameter ) {
 func GetFatalErrors( bugReportId int, knowledgeDefId uint , bootName string ) *[]LvFailureCond {
 
 //TODO use gorm to make this join
-sql:= `select sc.id,sc.scenario_name,fc.failure_message,tf.condition_name,ts.type_scenario_name
+sql:= `select sc.id,sc.scenario_name,st.id as state_id,fc.failure_message,tf.condition_name,ts.type_scenario_name
 	from type_scenarios ts, scenarios sc, failure_conds fc, type_cond_fails tf, type_states tys, states st
 	left join ( extra_states est 
 	inner join extra_scenarios esc on est.extra_scenario_id=esc.scenario_id
@@ -99,7 +99,7 @@ if err!=nil {
 var lvFcs []LvFailureCond
 for rows.Next() {
 	var lvFc LvFailureCond
-	rows.Scan(&lvFc.ScenarioID, &lvFc.ScenarioName, &lvFc.FailureMessage, &lvFc.CondName, &lvFc.TypeScenarioName)
+	rows.Scan(&lvFc.ScenarioID, &lvFc.ScenarioName, &lvFc.StateID, &lvFc.FailureMessage, &lvFc.CondName, &lvFc.TypeScenarioName)
 	lvFcs=append(lvFcs,lvFc)
 }
 
@@ -107,4 +107,5 @@ return &lvFcs
 
 
 }
+
 

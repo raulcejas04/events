@@ -155,6 +155,8 @@ type ExtraEvent struct {
 	LineNumber 	uint
 	Pid		int
 	Tid		int
+	Tag		string
+	Priority	string
 	Timestamp	time.Time
 	LogMessage	string
 	ExtraParameters	[]ExtraParameter  `gorm:"foreignkey:ExtraEventID;references:ID;constraint:OnDelete:CASCADE"`

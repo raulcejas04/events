@@ -170,6 +170,8 @@ func worker( msgWorker *chan prod.MsgWorker, parser *parser.Parser, f *os.File )
 								FileName: input.Message.FileName,
 								LineNumber: input.Message.LineNumber,
 								Timestamp: input.Message.Timestamp,
+								Tag: input.Message.Tag,
+								Priority: input.Message.Priority,
 								LogMessage: input.Message.Mess,
 								ExtraParameters: []postgres.ExtraParameter{},
 								}

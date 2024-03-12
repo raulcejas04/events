@@ -62,6 +62,16 @@ if result.Error != nil {
 }
 }
 
+func ( s *State ) GetEvents() *[]Event {
+var e []Event
+result:=DbEvents.Where( "state_id = ? ",s.ID).Find( &e )
+if result.Error != nil {
+	log.Errorf( "Error getting event %+v", result.Error )
+	return nil
+}
+return &e
+}
+
 func (t *TypeScenario) GetTypeScenario( id uint ) {
 result:=DbEvents.Find( t, id )
 if result.Error != nil {

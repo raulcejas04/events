@@ -10,8 +10,8 @@ import(
 
 type LvExtra struct {		//LogViewer Business Object
 	DefName			string
-	LvScenarios			[]LvScenario
-	LvErrors			[]LvFailureCond	
+	LvScenarios		[]LvScenario
+	LvErrors		[]LvFailureCond	
 }
 
 type LvScenario struct {
@@ -21,7 +21,8 @@ type LvScenario struct {
 }
 
 type LvState struct {
-	Message	string
+	MessageFormat	string
+	Message		string
 	PassCondName	string
 	LvEvents	[]LvEvent
 }
@@ -29,9 +30,11 @@ type LvState struct {
 type LvFailureCond struct {
 	ScenarioID		uint
 	ScenarioName		string
+	StateID		uint
 	FailureMessage		string
 	CondName		string
 	TypeScenarioName	string
+	Events			[]string
 }
 
 type LvEvent struct {
@@ -73,7 +76,7 @@ for _,sce := range e.GetScenarios() {
 			knowEvent := Event{}
 			(&knowEvent).GetEvent( ev.EventID )
 			ev.Event=knowEvent
-			lvEvents=append( lvEvents, LvEvent{ Name: knowEvent.Name, ExtraEvent:ev, LvParameters: lvParameters } )
+			lvEvents=append( lvEvents, LvEvent{  Name: knowEvent.Name, ExtraEvent:ev, LvParameters: lvParameters } )
 		}
 		//TODO failcond
 
@@ -86,7 +89,7 @@ for _,sce := range e.GetScenarios() {
 			(&passCond).GetPassCond( knowState.PassCondID )
 
 			message:=replaceParams( knowState.Message, lvEvents )
-			startState=LvState{ Message: message, PassCondName: passCond.PassCondName, LvEvents: lvEvents }
+			startState=LvState{ MessageFormat:knowState.Message, Message: message, PassCondName: passCond.PassCondName, LvEvents: lvEvents }
 		}
 	}
 
@@ -97,7 +100,7 @@ for _,sce := range e.GetScenarios() {
 		(&passCond).GetPassCond( knowState.PassCondID )
 	
 		message:=replaceParams( knowState.Message, startState.LvEvents )
-		endState = LvState{ Message: message, PassCondName: passCond.PassCondName, LvEvents: lvEvents }	
+		endState = LvState{ MessageFormat: knowState.Message, Message: message, PassCondName: passCond.PassCondName, LvEvents: lvEvents }	
 	}
 	scenario:=Scenario{}
 	(&scenario).GetScenario( sce.ScenarioID )
@@ -133,7 +136,16 @@ return message
 }
 
 func (l *LvExtra ) addFailureConds( bugReportID int,  knowledgeDefId uint, bootName string ) {
-(*l).LvErrors=append( (*l).LvErrors, (*GetFatalErrors( bugReportID, knowledgeDefId, bootName ))...)
+
+lvFailureConds:=*GetFatalErrors( bugReportID, knowledgeDefId, bootName )
+for k, lvFailureCond := range lvFailureConds {
+	state:=State{ID: lvFailureCond.StateID }
+	for _,ev :=range *(state.GetEvents()) {
+		lvFailureConds[k].Events=append(lvFailureConds[k].Events, ev.Log )
+	}
+}
+
+(*l).LvErrors=append( (*l).LvErrors, lvFailureConds...)
 return
 }
 

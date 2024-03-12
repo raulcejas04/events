@@ -68,6 +68,7 @@ type Message struct{
 	Timestamp time.Time
 	BootId uint
 	BootName string
+	Priority string
 	FileId uint
 	FileName string
 	LineNumber uint
@@ -76,11 +77,12 @@ type Message struct{
 type MsgBoot struct {
 	BootId uint
 	BootName string
+	PriorityName string
 }
 
 func GetContents(bugreportId int, partitionId int, fileId uint, fileName string) []Message {
 
-	rows,err := DbSql.Query("SELECT l.id,b.id as boot_folder_id,b.boot_folder_name FROM labels l, boot_folders b WHERE l.boot_folder_id=b.id AND bugreport_id=$1 and partition_id=$2", bugreportId, partitionId)
+	rows,err := DbSql.Query("SELECT l.id,b.id as boot_folder_id,b.boot_folder_name,p.priority_name FROM labels l, boot_folders b, priorities p WHERE l.boot_folder_id=b.id AND l.priority_id=p.id AND bugreport_id=$1 and partition_id=$2", bugreportId, partitionId)
 	defer rows.Close()
 
 	if err != nil {
@@ -92,10 +94,11 @@ func GetContents(bugreportId int, partitionId int, fileId uint, fileName string)
 		var id int
 		var boot_folder_id uint
 		var boot_folder_name string
-		if err := rows.Scan(&id,&boot_folder_id,&boot_folder_name); err != nil {
+		var priority_name string
+		if err := rows.Scan(&id,&boot_folder_id,&boot_folder_name, &priority_name); err != nil {
 			log.Fatal(err)
 		}
-		labels[id]=MsgBoot{ BootId: boot_folder_id, BootName: boot_folder_name}
+		labels[id]=MsgBoot{ BootId: boot_folder_id, BootName: boot_folder_name, PriorityName: priority_name}
 	}
 	
 	log.Info( "bugreport ", bugreportId, " partition_id ", partitionId, " file_id ", fileId )
@@ -123,7 +126,7 @@ func GetContents(bugreportId int, partitionId int, fileId uint, fileName string)
 			log.Fatal(err)
 		}
 		boot:=labels[label_id]
-		messages = append(messages, Message{ BugreportId: bugreportId, PartitionId: partitionId, Location: location, Pid:pid, Tid:tid, Tag: tag, Mess: message, Timestamp: timestamp, BootId: boot.BootId, BootName: boot.BootName, FileId: fileId, FileName: fileName, LineNumber: line_number })
+		messages = append(messages, Message{ BugreportId: bugreportId, PartitionId: partitionId, Location: location, Pid:pid, Tid:tid, Tag: tag, Mess: message, Timestamp: timestamp, BootId: boot.BootId, BootName: boot.BootName, Priority: boot.PriorityName, FileId: fileId, FileName: fileName, LineNumber: line_number })
 	}
 	//fmt.Println(" fileid 2 ", fileId, len(messages))
 	return messages
